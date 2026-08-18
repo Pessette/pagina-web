@@ -2,2371 +2,2395 @@
 <html lang="pt-BR">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Colégio Estadual do Campo Castelo Branco</title>
-
-    <meta name="description"
-        content="Conheça o Colégio Estadual do Campo Castelo Branco, sua rotina, espaços, organização e comunidade escolar.">
-
-    <style>
-
-        /* =========================================================
-           CONFIGURAÇÕES GERAIS
-        ========================================================= */
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --verde-escuro: #1d3326;
-            --verde-profundo: #263f30;
-            --verde: #355943;
-            --verde-medio: #587462;
-            --verde-claro: #e9f0eb;
-            --verde-suave: #f1f5f2;
-
-            --dourado: #b69b62;
-            --dourado-claro: #d9c79f;
-
-            --fundo: #f7f8f5;
-            --branco: #ffffff;
-
-            --texto: #29342d;
-            --texto-suave: #667169;
-            --cinza: #89918b;
-
-            --sombra: 0 15px 40px rgba(29, 51, 38, 0.09);
-            --sombra-forte: 0 25px 70px rgba(29, 51, 38, 0.18);
-
-            --raio: 20px;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: "Segoe UI", Arial, sans-serif;
-            background: var(--fundo);
-            color: var(--texto);
-            line-height: 1.7;
-            overflow-x: hidden;
-        }
-
-        button {
-            font-family: inherit;
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Conheça o Castelo Branco | Feira Escolar 2026</title>
+
+<style>
+
+/* =========================================================
+   RESET
+========================================================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:"Segoe UI",Arial,sans-serif;
+    background:#f4f6f1;
+    color:#26352c;
+    overflow-x:hidden;
+}
+
+button{
+    font-family:inherit;
+}
+
+:root{
+    --verde:#244532;
+    --verde2:#315b42;
+    --verde3:#66816e;
+    --verde-claro:#dfe9e1;
+    --creme:#f4f6f1;
+    --branco:#ffffff;
+    --dourado:#c1a36a;
+    --dourado2:#e1cfaa;
+    --texto:#29362e;
+    --cinza:#6f7972;
+}
+
+
+/* =========================================================
+   CURSOR DECORATIVO
+========================================================= */
+
+.cursor-dot{
+    position:fixed;
+    width:12px;
+    height:12px;
+    border-radius:50%;
+    background:var(--dourado);
+    pointer-events:none;
+    z-index:99999;
+    transform:translate(-50%,-50%);
+    mix-blend-mode:multiply;
+}
+
+@media(max-width:700px){
+    .cursor-dot{
+        display:none;
+    }
+}
+
 
-        ::selection {
-            background: var(--dourado);
-            color: white;
-        }
+/* =========================================================
+   NAVBAR
+========================================================= */
 
+nav{
+    position:fixed;
+    top:18px;
+    left:50%;
+    transform:translateX(-50%);
+
+    width:min(1100px,92%);
+
+    padding:12px 18px;
+
+    background:rgba(255,255,255,.78);
+    backdrop-filter:blur(15px);
+
+    border:1px solid rgba(36,69,50,.1);
+    border-radius:50px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
 
-        /* =========================================================
-           BARRA DE NAVEGAÇÃO
-        ========================================================= */
+    z-index:5000;
+
+    box-shadow:0 10px 35px rgba(36,69,50,.08);
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    color:var(--verde);
+    font-weight:700;
+}
 
-        .navbar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 72px;
-            background: rgba(29, 51, 38, 0.94);
-            backdrop-filter: blur(12px);
-            z-index: 5000;
+.logo-circle{
+    width:38px;
+    height:38px;
 
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
+    border-radius:50%;
 
-            padding: 0 6%;
+    background:var(--verde);
 
-            border-bottom: 1px solid rgba(255,255,255,0.08);
+    color:white;
 
-            transition: 0.3s ease;
-        }
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
 
-        .navbar.scrolled {
-            height: 62px;
-            background: rgba(25, 43, 32, 0.98);
-        }
+.nav-links{
+    display:flex;
+    gap:25px;
+}
 
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 12px;
+.nav-links a{
+    text-decoration:none;
+    color:#506057;
+    font-size:13px;
+    transition:.2s;
+}
 
-            color: white;
-            font-weight: 600;
-            font-size: 15px;
-        }
+.nav-links a:hover{
+    color:var(--verde);
+}
 
-        .logo-icon {
-            width: 40px;
-            height: 40px;
 
-            border: 1px solid rgba(255,255,255,0.35);
-            border-radius: 50%;
+/* =========================================================
+   HERO
+========================================================= */
 
-            display: flex;
-            align-items: center;
-            justify-content: center;
+.hero{
+    min-height:100vh;
 
-            color: var(--dourado-claro);
-            font-size: 18px;
-        }
+    position:relative;
+    overflow:hidden;
 
-        .menu {
-            display: flex;
-            align-items: center;
-            gap: 30px;
-        }
+    background:
+        radial-gradient(circle at 20% 20%,rgba(193,163,106,.22),transparent 25%),
+        radial-gradient(circle at 85% 70%,rgba(103,135,111,.22),transparent 30%),
+        #e9eee8;
 
-        .menu a {
-            color: rgba(255,255,255,0.78);
-            font-size: 14px;
-            transition: 0.25s ease;
-        }
+    display:flex;
+    align-items:center;
+    justify-content:center;
 
-        .menu a:hover {
-            color: white;
-        }
+    text-align:center;
 
+    padding:120px 20px 70px;
+}
 
-        /* =========================================================
-           HERO
-        ========================================================= */
+.hero-content{
+    position:relative;
+    z-index:3;
 
-        .hero {
-            min-height: 100vh;
+    max-width:850px;
 
-            position: relative;
-            overflow: hidden;
+    animation:heroEntrada 1.2s ease;
+}
 
-            background:
-                radial-gradient(circle at 10% 20%, rgba(182,155,98,0.12), transparent 25%),
-                radial-gradient(circle at 90% 80%, rgba(88,116,98,0.18), transparent 30%),
-                linear-gradient(135deg, #1c3024, #2d4937);
+@keyframes heroEntrada{
+    from{
+        opacity:0;
+        transform:translateY(35px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
 
-            color: white;
+.hero-small{
+    display:inline-block;
 
-            display: flex;
-            align-items: center;
-            justify-content: center;
+    color:var(--dourado);
 
-            text-align: center;
+    font-size:12px;
+    font-weight:700;
 
-            padding: 120px 25px 80px;
-        }
+    letter-spacing:4px;
 
-        .hero::before {
-            content: "";
-            position: absolute;
+    margin-bottom:22px;
+}
 
-            width: 650px;
-            height: 650px;
+.hero h1{
+    font-family:Georgia,serif;
 
-            border: 1px solid rgba(255,255,255,0.07);
-            border-radius: 50%;
+    font-size:clamp(48px,8vw,88px);
 
-            top: -330px;
-            left: -250px;
-        }
+    line-height:.98;
 
-        .hero::after {
-            content: "";
-            position: absolute;
+    font-weight:500;
 
-            width: 500px;
-            height: 500px;
-
-            border: 1px solid rgba(255,255,255,0.07);
-            border-radius: 50%;
+    color:var(--verde);
 
-            bottom: -300px;
-            right: -180px;
-        }
+    margin-bottom:25px;
+}
 
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            max-width: 950px;
-        }
+.hero h1 span{
+    color:var(--dourado);
+}
 
-        .mini-title {
-            display: inline-flex;
-            align-items: center;
-            gap: 12px;
+.hero p{
+    max-width:650px;
 
-            color: var(--dourado-claro);
-            font-size: 13px;
-            text-transform: uppercase;
-            letter-spacing: 3px;
+    margin:auto;
 
-            margin-bottom: 25px;
-        }
+    color:#667169;
 
-        .mini-title::before,
-        .mini-title::after {
-            content: "";
-            width: 30px;
-            height: 1px;
-            background: var(--dourado);
-        }
+    font-size:18px;
+}
 
-        .hero h1 {
-            font-family: Georgia, "Times New Roman", serif;
+.hero-button{
+    margin-top:35px;
 
-            font-size: clamp(42px, 7vw, 76px);
-            line-height: 1.08;
-            font-weight: 500;
+    border:none;
 
-            margin-bottom: 25px;
-        }
-
-        .hero h1 span {
-            color: var(--dourado-claro);
-        }
+    padding:15px 28px;
 
-        .hero p {
-            max-width: 700px;
-            margin: auto;
+    border-radius:50px;
 
-            color: rgba(255,255,255,0.78);
-            font-size: 18px;
-        }
+    background:var(--verde);
 
-        .hero-buttons {
-            margin-top: 38px;
+    color:white;
 
-            display: flex;
-            justify-content: center;
-            gap: 14px;
-            flex-wrap: wrap;
-        }
+    cursor:pointer;
 
-        .btn {
-            border: none;
-            padding: 13px 25px;
-            border-radius: 40px;
+    transition:.3s;
 
-            cursor: pointer;
-            font-size: 14px;
+    box-shadow:0 12px 25px rgba(36,69,50,.18);
+}
 
-            transition: 0.3s ease;
-        }
+.hero-button:hover{
+    transform:translateY(-5px);
+    background:var(--verde2);
+}
 
-        .btn-primary {
-            background: var(--dourado);
-            color: white;
-        }
 
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            background: #a88c52;
-        }
+/* ELEMENTOS FLUTUANTES */
 
-        .btn-outline {
-            background: transparent;
-            border: 1px solid rgba(255,255,255,0.3);
-            color: white;
-        }
+.floating{
+    position:absolute;
 
-        .btn-outline:hover {
-            background: rgba(255,255,255,0.1);
-        }
+    display:flex;
+    align-items:center;
+    justify-content:center;
 
-        .scroll-indicator {
-            position: absolute;
-            bottom: 25px;
-            left: 50%;
+    border-radius:22px;
 
-            transform: translateX(-50%);
+    background:white;
 
-            color: rgba(255,255,255,0.55);
-            font-size: 12px;
-            letter-spacing: 2px;
+    box-shadow:0 15px 35px rgba(36,69,50,.1);
 
-            animation: flutuar 2s infinite;
-        }
+    animation:flutuar 5s ease-in-out infinite;
+}
 
-        @keyframes flutuar {
+.float1{
+    width:75px;
+    height:75px;
+    top:24%;
+    left:9%;
+    font-size:30px;
+}
 
-            0%,100% {
-                transform: translate(-50%,0);
-            }
+.float2{
+    width:90px;
+    height:90px;
+    right:10%;
+    top:30%;
+    font-size:35px;
+    animation-delay:1s;
+}
 
-            50% {
-                transform: translate(-50%,8px);
-            }
-        }
+.float3{
+    width:65px;
+    height:65px;
+    left:17%;
+    bottom:17%;
+    font-size:26px;
+    animation-delay:2s;
+}
 
+.float4{
+    width:80px;
+    height:80px;
+    right:18%;
+    bottom:15%;
+    font-size:30px;
+    animation-delay:1.5s;
+}
 
-        /* =========================================================
-           SEÇÕES
-        ========================================================= */
+@keyframes flutuar{
+    0%,100%{
+        transform:translateY(0) rotate(0);
+    }
+    50%{
+        transform:translateY(-15px) rotate(4deg);
+    }
+}
 
-        section {
-            max-width: 1120px;
-            margin: auto;
-            padding: 100px 25px;
-        }
+@media(max-width:700px){
+    .floating{
+        opacity:.45;
+        transform:scale(.7);
+    }
+}
 
-        .titulo {
-            text-align: center;
-            margin-bottom: 55px;
-        }
 
-        .titulo .numero-secao {
-            color: var(--dourado);
-            font-size: 12px;
-            font-weight: bold;
-            letter-spacing: 3px;
-        }
+/* =========================================================
+   INTRODUÇÃO
+========================================================= */
 
-        .titulo h2 {
-            font-family: Georgia, "Times New Roman", serif;
+.intro{
+    max-width:1050px;
 
-            color: var(--verde-escuro);
-            font-size: clamp(32px, 5vw, 46px);
+    margin:auto;
 
-            font-weight: 500;
+    padding:110px 25px;
+}
 
-            margin: 8px 0 12px;
-        }
+.section-label{
+    color:var(--dourado);
 
-        .titulo p {
-            color: var(--texto-suave);
-            max-width: 650px;
-            margin: auto;
-        }
+    font-size:12px;
 
+    font-weight:700;
 
-        /* =========================================================
-           SOBRE
-        ========================================================= */
+    letter-spacing:3px;
 
-        .sobre-grid {
-            display: grid;
-            grid-template-columns: 1.1fr 0.9fr;
-            gap: 30px;
-            align-items: stretch;
-        }
+    text-transform:uppercase;
 
-        .sobre-texto {
-            background: white;
-            border-radius: var(--raio);
+    margin-bottom:10px;
+}
 
-            padding: 45px;
+.section-title{
+    font-family:Georgia,serif;
 
-            box-shadow: var(--sombra);
-            border: 1px solid rgba(53,89,67,0.08);
-        }
+    color:var(--verde);
 
-        .sobre-texto::before {
-            content: "";
-            display: block;
+    font-size:clamp(34px,5vw,52px);
 
-            width: 50px;
-            height: 3px;
+    font-weight:500;
 
-            background: var(--dourado);
+    margin-bottom:18px;
+}
 
-            margin-bottom: 25px;
-            border-radius: 10px;
-        }
+.section-subtitle{
+    color:var(--cinza);
 
-        .sobre-texto p {
-            color: #536057;
-            margin-bottom: 20px;
-        }
+    max-width:650px;
+}
 
-        .sobre-texto p:last-child {
-            margin-bottom: 0;
-        }
 
-        .sobre-texto strong {
-            color: var(--verde);
-        }
+/* =========================================================
+   SOBRE — CARTA INTERATIVA
+========================================================= */
 
+.sobre-box{
+    margin-top:45px;
 
-        /* =========================================================
-           CARD DE DESTAQUE
-        ========================================================= */
+    background:white;
 
-        .destaque {
-            background:
-                linear-gradient(145deg, var(--verde-escuro), var(--verde));
+    border-radius:30px;
 
-            color: white;
+    padding:45px;
 
-            border-radius: var(--raio);
+    box-shadow:0 20px 60px rgba(36,69,50,.08);
 
-            padding: 40px;
+    position:relative;
 
-            position: relative;
-            overflow: hidden;
+    overflow:hidden;
+}
 
-            box-shadow: var(--sombra);
-        }
+.sobre-box::after{
+    content:"";
 
-        .destaque::before {
-            content: "";
+    position:absolute;
 
-            position: absolute;
+    width:250px;
+    height:250px;
 
-            width: 260px;
-            height: 260px;
+    border-radius:50%;
 
-            border: 1px solid rgba(255,255,255,0.1);
-            border-radius: 50%;
+    border:1px solid rgba(193,163,106,.25);
 
-            right: -120px;
-            top: -100px;
-        }
+    right:-100px;
+    bottom:-100px;
+}
 
-        .destaque-icon {
-            width: 58px;
-            height: 58px;
+.sobre-box p{
+    color:#59655d;
 
-            border-radius: 16px;
+    margin-bottom:18px;
+}
 
-            background: rgba(255,255,255,0.1);
+.sobre-box strong{
+    color:var(--verde);
+}
 
-            display: flex;
-            align-items: center;
-            justify-content: center;
 
-            font-size: 25px;
+/* =========================================================
+   NÚMEROS
+========================================================= */
 
-            margin-bottom: 30px;
-        }
+.numeros{
+    display:grid;
 
-        .destaque h3 {
-            font-family: Georgia, "Times New Roman", serif;
-            font-size: 28px;
-            font-weight: 500;
+    grid-template-columns:repeat(3,1fr);
 
-            margin-bottom: 15px;
-        }
+    gap:18px;
 
-        .destaque p {
-            color: rgba(255,255,255,0.72);
-            font-size: 15px;
-        }
+    margin-top:25px;
+}
 
-        .destaque-frase {
-            margin-top: 35px;
+.numero-card{
+    background:var(--verde);
 
-            padding-top: 25px;
+    color:white;
 
-            border-top: 1px solid rgba(255,255,255,0.12);
+    border-radius:22px;
 
-            color: var(--dourado-claro);
-            font-family: Georgia, serif;
-            font-style: italic;
-        }
+    padding:30px;
 
+    position:relative;
 
-        /* =========================================================
-           CARDS DE INFORMAÇÕES
-        ========================================================= */
+    overflow:hidden;
 
-        .info-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
+    transition:.3s;
+}
 
-            margin-top: 30px;
-        }
+.numero-card:hover{
+    transform:translateY(-7px);
+}
 
-        .info-card {
-            background: white;
+.numero-card::after{
+    content:"";
 
-            padding: 30px;
+    position:absolute;
 
-            border-radius: 18px;
+    width:100px;
+    height:100px;
 
-            border: 1px solid rgba(53,89,67,0.08);
+    border-radius:50%;
 
-            box-shadow: 0 8px 25px rgba(36,56,43,0.06);
+    border:1px solid rgba(255,255,255,.15);
 
-            transition: 0.3s ease;
-        }
+    right:-40px;
+    bottom:-40px;
+}
 
-        .info-card:hover {
-            transform: translateY(-7px);
-            box-shadow: var(--sombra);
-        }
+.numero-card .icon{
+    font-size:27px;
+    margin-bottom:18px;
+}
 
-        .info-icon {
-            font-size: 25px;
-            margin-bottom: 15px;
-        }
+.numero-card h3{
+    font-family:Georgia,serif;
 
-        .info-card span {
-            display: block;
+    font-size:22px;
 
-            color: var(--dourado);
+    margin-bottom:6px;
+}
 
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
+.numero-card p{
+    color:rgba(255,255,255,.68);
 
-            font-size: 11px;
-            font-weight: bold;
+    font-size:13px;
+}
 
-            margin-bottom: 5px;
-        }
 
-        .info-card h3 {
-            color: var(--verde-escuro);
+/* =========================================================
+   ROTINA — LINHA DO TEMPO
+========================================================= */
 
-            font-family: Georgia, serif;
-            font-size: 21px;
+.rotina{
+    background:var(--verde);
 
-            margin-bottom: 8px;
-        }
+    color:white;
 
-        .info-card p {
-            color: var(--texto-suave);
-            font-size: 14px;
-        }
+    padding:110px 25px;
+}
 
+.rotina-inner{
+    max-width:1050px;
+    margin:auto;
+}
 
-        /* =========================================================
-           ROTINA
-        ========================================================= */
+.rotina .section-title{
+    color:white;
+}
 
-        .rotina-section {
-            background: var(--verde-suave);
-            max-width: none;
-        }
+.rotina .section-subtitle{
+    color:rgba(255,255,255,.62);
+}
 
-        .rotina-conteudo {
-            max-width: 1120px;
-            margin: auto;
-        }
+.timeline{
+    margin-top:60px;
 
-        .horarios {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 25px;
-        }
+    position:relative;
+}
 
-        .horario-card {
-            background: white;
-            border-radius: 20px;
-            padding: 35px;
+.timeline::before{
+    content:"";
 
-            box-shadow: var(--sombra);
-        }
+    position:absolute;
 
-        .horario-topo {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+    left:30px;
 
-            margin-bottom: 25px;
-        }
+    top:0;
+    bottom:0;
 
-        .horario-topo h3 {
-            font-family: Georgia, serif;
-            font-size: 25px;
-            color: var(--verde-escuro);
-        }
+    width:2px;
 
-        .periodo {
-            background: var(--verde-claro);
-            color: var(--verde);
+    background:rgba(255,255,255,.15);
+}
 
-            padding: 6px 12px;
-            border-radius: 20px;
+.timeline-item{
+    position:relative;
 
-            font-size: 12px;
-            font-weight: bold;
-        }
+    display:flex;
 
-        .horario {
-            display: flex;
-            align-items: center;
-            gap: 18px;
+    gap:30px;
 
-            padding: 15px 0;
+    margin-bottom:38px;
+}
 
-            border-bottom: 1px solid #edf0ed;
-        }
+.timeline-dot{
+    width:62px;
+    height:62px;
 
-        .horario:last-child {
-            border-bottom: none;
-        }
+    flex-shrink:0;
 
-        .hora {
-            min-width: 90px;
+    border-radius:50%;
 
-            color: var(--dourado);
-            font-weight: bold;
-            font-size: 14px;
-        }
+    background:var(--dourado);
 
-        .horario-texto {
-            color: var(--texto-suave);
-            font-size: 14px;
-        }
+    color:white;
 
+    display:flex;
+    align-items:center;
+    justify-content:center;
 
-        /* =========================================================
-           DIAS DO PERÍODO INTEGRAL
-        ========================================================= */
+    font-weight:700;
 
-        .dias-integral {
-            margin-top: 30px;
+    z-index:2;
 
-            display: grid;
-            grid-template-columns: repeat(2,1fr);
-            gap: 20px;
-        }
+    box-shadow:0 0 0 8px rgba(193,163,106,.08);
+}
 
-        .dia-card {
-            background: white;
+.timeline-card{
+    background:rgba(255,255,255,.07);
 
-            border-radius: 18px;
-            padding: 28px;
+    border:1px solid rgba(255,255,255,.1);
 
-            border-left: 4px solid var(--dourado);
+    border-radius:20px;
 
-            box-shadow: 0 8px 25px rgba(36,56,43,0.06);
-        }
+    padding:24px 28px;
 
-        .dia-card h3 {
-            font-family: Georgia, serif;
-            color: var(--verde-escuro);
+    flex:1;
 
-            margin-bottom: 8px;
-        }
+    transition:.3s;
+}
 
-        .dia-card p {
-            color: var(--texto-suave);
-            font-size: 14px;
-        }
+.timeline-card:hover{
+    background:rgba(255,255,255,.12);
 
+    transform:translateX(5px);
+}
 
-        /* =========================================================
-           TOUR / ESPAÇOS
-        ========================================================= */
+.timeline-card h3{
+    font-family:Georgia,serif;
 
-        .tour-section {
-            max-width: none;
+    font-size:21px;
 
-            background:
-                linear-gradient(
-                    180deg,
-                    #f4f7f4,
-                    #e8efea
-                );
-        }
+    margin-bottom:5px;
+}
 
-        .tour-conteudo {
-            max-width: 1120px;
-            margin: auto;
-        }
+.timeline-card p{
+    color:rgba(255,255,255,.62);
 
-        .espacos {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-        }
+    font-size:14px;
+}
 
-        .espaco {
-            position: relative;
 
-            background: white;
+/* =========================================================
+   DIAS
+========================================================= */
 
-            border: 1px solid rgba(53,89,67,0.1);
-            border-radius: 20px;
+.dias{
+    display:grid;
 
-            padding: 28px;
+    grid-template-columns:1fr 1fr;
 
-            text-align: left;
+    gap:20px;
 
-            cursor: pointer;
+    margin-top:30px;
+}
 
-            overflow: hidden;
+.dia{
+    padding:28px;
 
-            transition: 0.35s ease;
+    background:rgba(255,255,255,.06);
 
-            box-shadow: 0 8px 25px rgba(36,56,43,0.06);
-        }
+    border-radius:20px;
 
-        .espaco::after {
-            content: "";
+    border:1px solid rgba(255,255,255,.1);
+}
 
-            position: absolute;
+.dia span{
+    color:var(--dourado2);
 
-            width: 100px;
-            height: 100px;
+    font-size:12px;
 
-            border-radius: 50%;
+    text-transform:uppercase;
 
-            background: var(--verde-claro);
+    letter-spacing:2px;
+}
 
-            right: -45px;
-            bottom: -45px;
+.dia h3{
+    font-family:Georgia,serif;
 
-            transition: 0.3s ease;
-        }
+    font-size:23px;
 
-        .espaco:hover {
-            transform: translateY(-8px);
+    margin:7px 0;
+}
 
-            border-color: rgba(182,155,98,0.5);
+.dia p{
+    color:rgba(255,255,255,.62);
 
-            box-shadow: var(--sombra);
-        }
+    font-size:14px;
+}
 
-        .espaco:hover::after {
-            transform: scale(1.4);
-        }
 
-        .espaco-numero {
-            color: var(--dourado);
+/* =========================================================
+   MAPA DA ESCOLA
+========================================================= */
 
-            font-size: 12px;
-            letter-spacing: 2px;
-            font-weight: bold;
-        }
+.mapa-section{
+    padding:110px 25px;
 
-        .espaco-icone {
-            width: 50px;
-            height: 50px;
+    max-width:1100px;
 
-            background: var(--verde-claro);
+    margin:auto;
+}
 
-            border-radius: 14px;
+.mapa-intro{
+    display:flex;
 
-            display: flex;
-            align-items: center;
-            justify-content: center;
+    justify-content:space-between;
 
-            font-size: 22px;
+    align-items:end;
 
-            margin: 20px 0;
-        }
+    gap:30px;
 
-        .espaco h3 {
-            font-family: Georgia, serif;
+    margin-bottom:45px;
+}
 
-            color: var(--verde-escuro);
+.mapa{
+    min-height:600px;
 
-            font-size: 22px;
+    background:
+        linear-gradient(rgba(255,255,255,.6) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(255,255,255,.6) 1px,transparent 1px),
+        #e7eee8;
 
-            margin-bottom: 7px;
-        }
+    background-size:40px 40px;
 
-        .espaco p {
-            color: var(--texto-suave);
-            font-size: 13px;
-        }
+    border-radius:35px;
 
-        .espaco-seta {
-            position: absolute;
+    position:relative;
 
-            right: 25px;
-            top: 28px;
+    overflow:hidden;
 
-            color: var(--verde);
+    border:1px solid rgba(36,69,50,.1);
 
-            font-size: 20px;
+    box-shadow:0 20px 60px rgba(36,69,50,.08);
+}
 
-            transition: 0.25s;
-        }
+.mapa::before{
+    content:"";
 
-        .espaco:hover .espaco-seta {
-            transform: translateX(5px);
-        }
+    position:absolute;
 
+    inset:30px;
 
-        /* =========================================================
-           MODAL
-        ========================================================= */
+    border:2px dashed rgba(49,91,66,.18);
 
-        .modal {
-            position: fixed;
-            inset: 0;
+    border-radius:25px;
+}
 
-            background: rgba(19,31,23,0.78);
+.mapa-legenda{
+    position:absolute;
 
-            backdrop-filter: blur(10px);
+    left:40px;
+    top:40px;
 
-            z-index: 9000;
+    background:white;
 
-            display: none;
+    padding:12px 18px;
 
-            align-items: center;
-            justify-content: center;
+    border-radius:30px;
 
-            padding: 20px;
-        }
+    font-size:12px;
 
-        .modal.ativo {
-            display: flex;
-        }
+    color:var(--verde);
 
-        .modal-conteudo {
-            width: 100%;
-            max-width: 750px;
+    box-shadow:0 8px 20px rgba(36,69,50,.08);
+}
 
-            max-height: 90vh;
 
-            overflow-y: auto;
+/* =========================================================
+   PONTOS DO MAPA
+========================================================= */
 
-            background: #f8faf8;
+.mapa-ponto{
+    position:absolute;
 
-            border-radius: 25px;
+    width:90px;
+    height:90px;
 
-            padding: 45px;
+    border:none;
 
-            position: relative;
+    border-radius:24px;
 
-            box-shadow: var(--sombra-forte);
+    background:white;
 
-            animation: aparecer 0.3s ease;
-        }
+    box-shadow:0 10px 25px rgba(36,69,50,.12);
 
-        @keyframes aparecer {
+    cursor:pointer;
 
-            from {
-                opacity: 0;
-                transform: translateY(25px) scale(0.97);
-            }
+    transition:.3s;
 
-            to {
-                opacity: 1;
-                transform: translateY(0) scale(1);
-            }
+    z-index:3;
+}
 
-        }
+.mapa-ponto:hover{
+    transform:scale(1.12) rotate(-2deg);
 
-        .fechar {
-            position: absolute;
+    box-shadow:0 20px 40px rgba(36,69,50,.2);
 
-            top: 20px;
-            right: 20px;
+    background:var(--verde);
 
-            width: 40px;
-            height: 40px;
+    color:white;
+}
 
-            border: none;
-            border-radius: 50%;
+.mapa-ponto .emoji{
+    display:block;
 
-            background: var(--verde-claro);
+    font-size:25px;
 
-            color: var(--verde-escuro);
+    margin-bottom:4px;
+}
 
-            font-size: 23px;
+.mapa-ponto small{
+    font-size:10px;
 
-            cursor: pointer;
+    font-weight:700;
+}
 
-            transition: 0.2s;
-        }
 
-        .fechar:hover {
-            background: var(--verde);
-            color: white;
-        }
+/* POSIÇÕES */
 
-        .modal-numero {
-            color: var(--dourado);
+.p1{left:8%;top:18%;}
+.p2{left:28%;top:12%;}
+.p3{left:50%;top:18%;}
+.p4{left:72%;top:12%;}
 
-            text-transform: uppercase;
-            letter-spacing: 2px;
+.p5{left:15%;top:42%;}
+.p6{left:40%;top:42%;}
+.p7{left:65%;top:40%;}
 
-            font-size: 12px;
-            font-weight: bold;
-        }
+.p8{left:12%;bottom:12%;}
+.p9{left:38%;bottom:10%;}
+.p10{left:63%;bottom:12%;}
+.p11{right:7%;bottom:10%;}
 
-        .modal h2 {
-            font-family: Georgia, serif;
 
-            font-size: 36px;
+/* =========================================================
+   JANELA DOS AMBIENTES
+========================================================= */
 
-            font-weight: 500;
+.modal{
+    position:fixed;
 
-            color: var(--verde-escuro);
+    inset:0;
 
-            margin: 5px 0 20px;
-        }
+    background:rgba(17,29,21,.78);
 
-        .modal-icone {
-            width: 80px;
-            height: 80px;
+    backdrop-filter:blur(12px);
 
-            background: var(--verde-claro);
+    display:none;
 
-            border-radius: 20px;
+    align-items:center;
 
-            display: flex;
-            align-items: center;
-            justify-content: center;
+    justify-content:center;
 
-            font-size: 35px;
+    padding:20px;
 
-            margin-bottom: 25px;
-        }
+    z-index:9000;
+}
 
-        .modal p {
-            color: var(--texto-suave);
-            margin-bottom: 20px;
-        }
+.modal.active{
+    display:flex;
+}
 
-        .curiosidade {
-            background: white;
+.modal-box{
+    background:#f8faf7;
 
-            border-left: 4px solid var(--dourado);
+    width:min(650px,100%);
 
-            padding: 20px;
+    max-height:90vh;
 
-            border-radius: 12px;
+    overflow:auto;
 
-            margin-top: 25px;
-        }
+    border-radius:30px;
 
-        .curiosidade strong {
-            display: block;
+    padding:45px;
 
-            color: var(--verde);
+    position:relative;
 
-            margin-bottom: 5px;
-        }
+    animation:modalEntrada .35s ease;
 
-        .modal-fechar {
-            display: block;
+    box-shadow:0 30px 80px rgba(0,0,0,.25);
+}
 
-            margin: 30px auto 0;
+@keyframes modalEntrada{
+    from{
+        opacity:0;
+        transform:translateY(30px) scale(.96);
+    }
 
-            border: none;
+    to{
+        opacity:1;
+        transform:translateY(0) scale(1);
+    }
+}
 
-            background: var(--verde);
+.close{
+    position:absolute;
 
-            color: white;
+    top:18px;
+    right:18px;
 
-            padding: 11px 25px;
+    width:42px;
+    height:42px;
 
-            border-radius: 30px;
+    border:none;
 
-            cursor: pointer;
-        }
+    border-radius:50%;
 
+    background:var(--verde-claro);
 
-        /* =========================================================
-           PROTAGONISMO
-        ========================================================= */
+    color:var(--verde);
 
-        .protagonismo {
-            background: var(--verde-escuro);
-            max-width: none;
-            color: white;
-        }
+    font-size:22px;
 
-        .protagonismo-conteudo {
-            max-width: 1120px;
-            margin: auto;
-        }
+    cursor:pointer;
+}
 
-        .protagonismo .titulo h2 {
-            color: white;
-        }
+.modal-emoji{
+    width:75px;
+    height:75px;
 
-        .protagonismo .titulo p {
-            color: rgba(255,255,255,0.65);
-        }
+    display:flex;
+    align-items:center;
+    justify-content:center;
 
-        .protagonismo-grid {
-            display: grid;
-            grid-template-columns: repeat(4,1fr);
-            gap: 18px;
-        }
+    border-radius:22px;
 
-        .protagonismo-card {
-            border: 1px solid rgba(255,255,255,0.1);
+    background:var(--verde-claro);
 
-            padding: 28px;
+    font-size:34px;
 
-            border-radius: 18px;
+    margin-bottom:22px;
+}
 
-            background: rgba(255,255,255,0.04);
+.modal-number{
+    color:var(--dourado);
 
-            transition: 0.3s;
-        }
+    font-size:12px;
 
-        .protagonismo-card:hover {
-            background: rgba(255,255,255,0.08);
-            transform: translateY(-5px);
-        }
+    font-weight:700;
 
-        .protagonismo-card span {
-            font-size: 25px;
-        }
+    letter-spacing:3px;
+}
 
-        .protagonismo-card h3 {
-            font-family: Georgia, serif;
+.modal-box h2{
+    font-family:Georgia,serif;
 
-            margin: 15px 0 8px;
-        }
+    font-size:38px;
 
-        .protagonismo-card p {
-            color: rgba(255,255,255,0.6);
-            font-size: 13px;
-        }
+    font-weight:500;
 
+    color:var(--verde);
 
-        /* =========================================================
-           FRASE FINAL
-        ========================================================= */
+    margin:5px 0 18px;
+}
 
-        .frase-final {
-            text-align: center;
+.modal-box p{
+    color:#667169;
 
-            padding: 110px 25px;
+    font-size:15px;
 
-            background: var(--fundo);
-        }
+    line-height:1.8;
+}
 
-        .frase-final .aspas {
-            color: var(--dourado);
+.fact{
+    margin-top:25px;
 
-            font-family: Georgia, serif;
+    padding:22px;
 
-            font-size: 60px;
+    background:white;
 
-            line-height: 0.5;
-        }
+    border-radius:18px;
 
-        .frase-final h2 {
-            max-width: 800px;
+    border-left:4px solid var(--dourado);
+}
 
-            margin: 30px auto 15px;
+.fact strong{
+    display:block;
 
-            font-family: Georgia, serif;
+    color:var(--verde);
 
-            font-size: clamp(28px,4vw,40px);
+    margin-bottom:5px;
+}
 
-            font-weight: 500;
+.modal-button{
+    margin-top:25px;
 
-            color: var(--verde-escuro);
-        }
+    border:none;
 
-        .frase-final p {
-            color: var(--texto-suave);
-        }
+    background:var(--verde);
 
+    color:white;
 
-        /* =========================================================
-           RODAPÉ
-        ========================================================= */
+    padding:12px 22px;
 
-        footer {
-            background: #17291f;
+    border-radius:30px;
 
-            color: white;
+    cursor:pointer;
+}
 
-            text-align: center;
 
-            padding: 50px 20px;
-        }
+/* =========================================================
+   PROTAGONISMO
+========================================================= */
 
-        .footer-logo {
-            width: 55px;
-            height: 55px;
+.protagonismo{
+    background:#eef2ed;
 
-            border: 1px solid rgba(255,255,255,0.25);
+    padding:110px 25px;
+}
 
-            border-radius: 50%;
+.protagonismo-inner{
+    max-width:1050px;
+    margin:auto;
+}
 
-            display: flex;
-            align-items: center;
-            justify-content: center;
+.protagonismo-grid{
+    display:grid;
 
-            margin: 0 auto 20px;
+    grid-template-columns:repeat(4,1fr);
 
-            color: var(--dourado-claro);
-        }
+    gap:15px;
 
-        footer h3 {
-            font-family: Georgia, serif;
+    margin-top:45px;
+}
 
-            font-size: 19px;
+.pro-card{
+    background:white;
 
-            font-weight: 500;
+    padding:30px;
 
-            margin-bottom: 8px;
-        }
+    border-radius:24px;
 
-        footer p {
-            color: rgba(255,255,255,0.55);
-            font-size: 13px;
-        }
+    text-align:center;
 
-        .footer-linha {
-            width: 60px;
-            height: 1px;
+    transition:.3s;
 
-            background: var(--dourado);
+    border:1px solid rgba(36,69,50,.07);
+}
 
-            margin: 25px auto;
-        }
+.pro-card:hover{
+    transform:translateY(-8px) rotate(1deg);
 
+    box-shadow:0 18px 40px rgba(36,69,50,.1);
+}
 
-        /* =========================================================
-           BOTÃO VOLTAR AO TOPO
-        ========================================================= */
+.pro-card .big{
+    font-size:35px;
 
-        #topo {
-            position: fixed;
+    margin-bottom:15px;
+}
 
-            right: 25px;
-            bottom: 25px;
+.pro-card h3{
+    font-family:Georgia,serif;
 
-            width: 45px;
-            height: 45px;
+    color:var(--verde);
 
-            border: none;
-            border-radius: 50%;
+    margin-bottom:7px;
+}
 
-            background: var(--verde);
+.pro-card p{
+    color:var(--cinza);
 
-            color: white;
+    font-size:13px;
+}
 
-            cursor: pointer;
 
-            opacity: 0;
-            visibility: hidden;
+/* =========================================================
+   CURIOSIDADE
+========================================================= */
 
-            transition: 0.3s;
+.curiosidade{
+    max-width:900px;
 
-            z-index: 4000;
-        }
+    margin:110px auto;
 
-        #topo.visivel {
-            opacity: 1;
-            visibility: visible;
-        }
+    padding:0 25px;
 
-        #topo:hover {
-            transform: translateY(-4px);
-            background: var(--dourado);
-        }
+    text-align:center;
+}
 
+.curiosidade-box{
+    background:var(--verde);
 
-        /* =========================================================
-           RESPONSIVIDADE
-        ========================================================= */
+    color:white;
 
-        @media (max-width: 900px) {
+    border-radius:35px;
 
-            .sobre-grid {
-                grid-template-columns: 1fr;
-            }
+    padding:60px 30px;
 
-            .info-grid {
-                grid-template-columns: 1fr;
-            }
+    position:relative;
 
-            .espacos {
-                grid-template-columns: repeat(2,1fr);
-            }
+    overflow:hidden;
+}
 
-            .protagonismo-grid {
-                grid-template-columns: repeat(2,1fr);
-            }
+.curiosidade-box::before{
+    content:"?";
 
-        }
+    position:absolute;
 
+    font-size:300px;
 
-        @media (max-width: 700px) {
+    font-weight:bold;
 
-            .navbar {
-                padding: 0 20px;
-            }
+    color:rgba(255,255,255,.03);
 
-            .menu {
-                display: none;
-            }
+    right:-40px;
 
-            section {
-                padding: 70px 18px;
-            }
+    top:-120px;
+}
 
-            .hero {
-                min-height: 90vh;
-            }
+.curiosidade-box .small{
+    color:var(--dourado2);
 
-            .hero h1 {
-                font-size: 42px;
-            }
+    font-size:12px;
 
-            .sobre-texto {
-                padding: 28px;
-            }
+    letter-spacing:3px;
 
-            .horarios {
-                grid-template-columns: 1fr;
-            }
+    text-transform:uppercase;
+}
 
-            .dias-integral {
-                grid-template-columns: 1fr;
-            }
+.curiosidade-box h2{
+    font-family:Georgia,serif;
 
-            .espacos {
-                grid-template-columns: 1fr;
-            }
+    font-size:clamp(28px,5vw,42px);
 
-            .protagonismo-grid {
-                grid-template-columns: 1fr;
-            }
+    font-weight:500;
 
-            .modal {
-                padding: 10px;
-            }
+    margin:20px auto;
 
-            .modal-conteudo {
-                padding: 30px 22px;
-            }
+    max-width:700px;
+}
 
-            .modal h2 {
-                font-size: 30px;
-            }
+.curiosidade-box p{
+    color:rgba(255,255,255,.62);
 
-        }
+    max-width:600px;
 
+    margin:auto;
+}
 
-        @media (max-width: 430px) {
+#novaCuriosidade{
+    margin-top:25px;
 
-            .logo span {
-                font-size: 12px;
-            }
+    border:1px solid rgba(255,255,255,.2);
 
-            .hero h1 {
-                font-size: 36px;
-            }
+    background:transparent;
 
-            .hero p {
-                font-size: 16px;
-            }
+    color:white;
 
-            .hero-buttons {
-                flex-direction: column;
-            }
+    padding:11px 20px;
 
-            .btn {
-                width: 100%;
-            }
+    border-radius:30px;
 
-        }
+    cursor:pointer;
 
-    </style>
+    transition:.2s;
+}
 
+#novaCuriosidade:hover{
+    background:white;
+
+    color:var(--verde);
+}
+
+
+/* =========================================================
+   FINAL
+========================================================= */
+
+.final{
+    padding:120px 25px;
+
+    text-align:center;
+
+    background:#f7f8f4;
+}
+
+.final-symbol{
+    color:var(--dourado);
+
+    font-size:45px;
+}
+
+.final h2{
+    font-family:Georgia,serif;
+
+    color:var(--verde);
+
+    font-size:clamp(30px,5vw,48px);
+
+    max-width:800px;
+
+    margin:20px auto;
+}
+
+.final p{
+    color:var(--cinza);
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer{
+    background:#17291f;
+
+    color:white;
+
+    text-align:center;
+
+    padding:50px 20px;
+}
+
+footer h3{
+    font-family:Georgia,serif;
+
+    font-weight:500;
+
+    font-size:20px;
+}
+
+footer p{
+    color:rgba(255,255,255,.5);
+
+    font-size:13px;
+
+    margin-top:7px;
+}
+
+
+/* =========================================================
+   TOPO
+========================================================= */
+
+.top{
+    position:fixed;
+
+    bottom:22px;
+
+    right:22px;
+
+    width:45px;
+    height:45px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:var(--verde);
+
+    color:white;
+
+    cursor:pointer;
+
+    opacity:0;
+
+    visibility:hidden;
+
+    transition:.3s;
+
+    z-index:4000;
+}
+
+.top.show{
+    opacity:1;
+
+    visibility:visible;
+}
+
+
+/* =========================================================
+   RESPONSIVO
+========================================================= */
+
+@media(max-width:850px){
+
+    .nav-links{
+        display:none;
+    }
+
+    .numeros{
+        grid-template-columns:1fr;
+    }
+
+    .protagonismo-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .mapa{
+        min-height:700px;
+    }
+
+}
+
+@media(max-width:650px){
+
+    .hero{
+        padding-top:120px;
+    }
+
+    .hero h1{
+        font-size:48px;
+    }
+
+    .hero p{
+        font-size:16px;
+    }
+
+    .sobre-box{
+        padding:28px;
+    }
+
+    .timeline-item{
+        gap:15px;
+    }
+
+    .timeline-dot{
+        width:48px;
+        height:48px;
+        font-size:12px;
+    }
+
+    .timeline::before{
+        left:23px;
+    }
+
+    .dias{
+        grid-template-columns:1fr;
+    }
+
+    .mapa-intro{
+        display:block;
+    }
+
+    .mapa{
+        min-height:850px;
+    }
+
+    .mapa-ponto{
+        width:75px;
+        height:75px;
+    }
+
+    .p1{left:5%;top:15%;}
+    .p2{left:40%;top:10%;}
+    .p3{right:5%;left:auto;top:17%;}
+    .p4{left:18%;top:31%;}
+    .p5{left:60%;top:32%;}
+    .p6{left:7%;top:48%;}
+    .p7{right:8%;left:auto;top:48%;}
+    .p8{left:20%;bottom:25%;}
+    .p9{right:20%;left:auto;bottom:25%;}
+    .p10{left:8%;bottom:8%;}
+    .p11{right:8%;bottom:8%;}
+
+    .protagonismo-grid{
+        grid-template-columns:1fr;
+    }
+
+    .modal-box{
+        padding:30px 22px;
+    }
+
+}
+
+</style>
 </head>
 
 
 <body>
 
 
-    <!-- =========================================================
-         NAVBAR
-    ========================================================= -->
+<div class="cursor-dot" id="cursor"></div>
 
-    <nav class="navbar" id="navbar">
 
-        <a href="#inicio" class="logo">
+<!-- =========================================================
+     NAV
+========================================================= -->
 
-            <div class="logo-icon">
-                ✦
-            </div>
+<nav>
 
-            <span>
-                Castelo Branco
-            </span>
+    <a href="#inicio" class="logo">
 
-        </a>
-
-
-        <div class="menu">
-
-            <a href="#sobre">
-                Sobre
-            </a>
-
-            <a href="#rotina">
-                Rotina
-            </a>
-
-            <a href="#espacos">
-                Espaços
-            </a>
-
-            <a href="#protagonismo">
-                Protagonismo
-            </a>
-
-        </div>
-
-    </nav>
-
-
-    <!-- =========================================================
-         HERO
-    ========================================================= -->
-
-    <header class="hero" id="inicio">
-
-        <div class="hero-content">
-
-            <div class="mini-title">
-                Feira Escolar • 2026
-            </div>
-
-            <h1>
-                Colégio Estadual do Campo
-                <span>Castelo Branco</span>
-            </h1>
-
-            <p>
-                Um espaço de aprendizagem, convivência, participação
-                e construção de novas possibilidades para o futuro.
-            </p>
-
-
-            <div class="hero-buttons">
-
-                <a href="#sobre" class="btn btn-primary">
-                    Conheça nossa escola
-                </a>
-
-                <a href="#espacos" class="btn btn-outline">
-                    Explorar espaços
-                </a>
-
-            </div>
-
-        </div>
-
-
-        <div class="scroll-indicator">
-            ↓ ROLE PARA EXPLORAR
-        </div>
-
-    </header>
-
-
-    <!-- =========================================================
-         SOBRE A ESCOLA
-    ========================================================= -->
-
-    <section id="sobre">
-
-        <div class="titulo">
-
-            <div class="numero-secao">
-                01 • NOSSA ESCOLA
-            </div>
-
-            <h2>
-                Sobre a nossa escola
-            </h2>
-
-            <p>
-                Conheça um pouco da nossa rotina, organização,
-                identidade e maneira de viver a experiência escolar.
-            </p>
-
-        </div>
-
-
-        <div class="sobre-grid">
-
-
-            <div class="sobre-texto">
-
-                <p>
-                    O <strong>Colégio Estadual do Campo Castelo Branco</strong>
-                    é uma escola de período integral que busca proporcionar
-                    aos estudantes uma formação ampla, unindo os conhecimentos
-                    das diferentes áreas do ensino ao desenvolvimento pessoal,
-                    à convivência e à participação na comunidade escolar.
-                </p>
-
-                <p>
-                    A rotina escolar acontece das
-                    <strong>7h20 às 11h30</strong> no período da manhã e das
-                    <strong>12h55 às 17h</strong> no período da tarde.
-                    Durante esse período, os estudantes participam das aulas,
-                    atividades e diferentes momentos de aprendizagem.
-                </p>
-
-                <p>
-                    A escola também conta com momentos de recreio ao longo
-                    do dia. Pela manhã, o recreio acontece das
-                    <strong>9h às 9h15</strong> e, à tarde, das
-                    <strong>15h15 às 15h30</strong>.
-                </p>
-
-                <p>
-                    Por ser uma escola de período integral, os estudantes
-                    também permanecem na instituição durante o horário do
-                    <strong>almoço</strong>. Os alunos que estão na escola
-                    naquele dia realizam a refeição juntos, fortalecendo
-                    momentos de convivência e integração.
-                </p>
-
-                <p>
-                    A organização do período integral acontece de acordo com
-                    os dias da semana. Às <strong>segundas e quartas-feiras</strong>,
-                    permanecem durante todo o dia os estudantes do
-                    <strong>6º, 7º e 8º anos do Ensino Fundamental</strong>.
-                </p>
-
-                <p>
-                    Já às <strong>terças e quintas-feiras</strong>, permanecem
-                    em período integral os estudantes do
-                    <strong>Ensino Médio e do 9º ano do Ensino Fundamental</strong>.
-                </p>
-
-                <p>
-                    Outro aspecto importante é o
-                    <strong>protagonismo dos estudantes</strong>.
-                    A proposta busca incentivar a participação, a criatividade,
-                    a responsabilidade e o envolvimento dos alunos na vida
-                    escolar.
-                </p>
-
-                <p>
-                    Mais do que um espaço destinado às aulas, a escola é
-                    também um ambiente de convivência, troca de experiências,
-                    desenvolvimento de habilidades e construção de novas
-                    possibilidades para o futuro.
-                </p>
-
-            </div>
-
-
-            <div class="destaque">
-
-                <div class="destaque-icon">
-                    ✦
-                </div>
-
-                <h3>
-                    Uma escola que vai além da sala de aula
-                </h3>
-
-                <p>
-                    O cotidiano escolar é formado por diferentes momentos:
-                    aulas, recreios, almoço, atividades, projetos,
-                    convivência e participação.
-                </p>
-
-                <p>
-                    Cada espaço e cada experiência contribuem para
-                    a formação dos estudantes e para a construção
-                    de uma comunidade escolar mais participativa.
-                </p>
-
-                <div class="destaque-frase">
-                    “Aprender também acontece quando compartilhamos,
-                    participamos e construímos juntos.”
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <!-- CARDS -->
-
-        <div class="info-grid">
-
-            <div class="info-card">
-
-                <div class="info-icon">
-                    🕐
-                </div>
-
-                <span>
-                    Rotina
-                </span>
-
-                <h3>
-                    Período Integral
-                </h3>
-
-                <p>
-                    Atividades escolares durante os períodos
-                    da manhã e da tarde.
-                </p>
-
-            </div>
-
-
-            <div class="info-card">
-
-                <div class="info-icon">
-                    🍽️
-                </div>
-
-                <span>
-                    Convivência
-                </span>
-
-                <h3>
-                    Almoço na escola
-                </h3>
-
-                <p>
-                    Um momento de convivência entre os estudantes
-                    que permanecem na instituição.
-                </p>
-
-            </div>
-
-
-            <div class="info-card">
-
-                <div class="info-icon">
-                    💡
-                </div>
-
-                <span>
-                    Participação
-                </span>
-
-                <h3>
-                    Protagonismo
-                </h3>
-
-                <p>
-                    Incentivo à participação, criatividade
-                    e responsabilidade dos estudantes.
-                </p>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- =========================================================
-         ROTINA
-    ========================================================= -->
-
-    <section class="rotina-section" id="rotina">
-
-        <div class="rotina-conteudo">
-
-            <div class="titulo">
-
-                <div class="numero-secao">
-                    02 • NOSSA ROTINA
-                </div>
-
-                <h2>
-                    Como funciona o nosso dia?
-                </h2>
-
-                <p>
-                    A rotina é organizada para unir aprendizagem,
-                    convivência e momentos de descanso.
-                </p>
-
-            </div>
-
-
-            <div class="horarios">
-
-
-                <!-- MANHÃ -->
-
-                <div class="horario-card">
-
-                    <div class="horario-topo">
-
-                        <h3>
-                            Período da manhã
-                        </h3>
-
-                        <span class="periodo">
-                            MANHÃ
-                        </span>
-
-                    </div>
-
-
-                    <div class="horario">
-
-                        <span class="hora">
-                            7h20
-                        </span>
-
-                        <span class="horario-texto">
-                            Início das atividades escolares.
-                        </span>
-
-                    </div>
-
-
-                    <div class="horario">
-
-                        <span class="hora">
-                            9h – 9h15
-                        </span>
-
-                        <span class="horario-texto">
-                            Recreio da manhã.
-                        </span>
-
-                    </div>
-
-
-                    <div class="horario">
-
-                        <span class="hora">
-                            11h30
-                        </span>
-
-                        <span class="horario-texto">
-                            Encerramento do período da manhã.
-                        </span>
-
-                    </div>
-
-                </div>
-
-
-                <!-- TARDE -->
-
-                <div class="horario-card">
-
-                    <div class="horario-topo">
-
-                        <h3>
-                            Período da tarde
-                        </h3>
-
-                        <span class="periodo">
-                            TARDE
-                        </span>
-
-                    </div>
-
-
-                    <div class="horario">
-
-                        <span class="hora">
-                            12h55
-                        </span>
-
-                        <span class="horario-texto">
-                            Retorno para as atividades da tarde.
-                        </span>
-
-                    </div>
-
-
-                    <div class="horario">
-
-                        <span class="hora">
-                            15h15 – 15h30
-                        </span>
-
-                        <span class="horario-texto">
-                            Recreio da tarde.
-                        </span>
-
-                    </div>
-
-
-                    <div class="horario">
-
-                        <span class="hora">
-                            17h
-                        </span>
-
-                        <span class="horario-texto">
-                            Encerramento das atividades.
-                        </span>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <!-- DIAS -->
-
-            <div class="dias-integral">
-
-                <div class="dia-card">
-
-                    <h3>
-                        Segunda e quarta-feira
-                    </h3>
-
-                    <p>
-                        Permanecem durante todo o dia os estudantes
-                        do <strong>6º, 7º e 8º anos do Ensino Fundamental</strong>.
-                    </p>
-
-                </div>
-
-
-                <div class="dia-card">
-
-                    <h3>
-                        Terça e quinta-feira
-                    </h3>
-
-                    <p>
-                        Permanecem durante todo o dia os estudantes
-                        do <strong>Ensino Médio e do 9º ano do Ensino Fundamental</strong>.
-                    </p>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- =========================================================
-         ESPAÇOS
-    ========================================================= -->
-
-    <section class="tour-section" id="espacos">
-
-        <div class="tour-conteudo">
-
-            <div class="titulo">
-
-                <div class="numero-secao">
-                    03 • CONHEÇA OS ESPAÇOS
-                </div>
-
-                <h2>
-                    Um tour pela escola
-                </h2>
-
-                <p>
-                    Clique em cada ambiente para conhecer um pouco
-                    mais sobre os espaços que fazem parte do nosso cotidiano.
-                </p>
-
-            </div>
-
-
-            <div class="espacos" id="listaEspacos">
-
-                <!-- CARDS GERADOS PELO JAVASCRIPT -->
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- =========================================================
-         PROTAGONISMO
-    ========================================================= -->
-
-    <section class="protagonismo" id="protagonismo">
-
-        <div class="protagonismo-conteudo">
-
-            <div class="titulo">
-
-                <div class="numero-secao">
-                    04 • ESTUDANTES
-                </div>
-
-                <h2>
-                    Protagonismo estudantil
-                </h2>
-
-                <p>
-                    A escola também é construída pela participação
-                    daqueles que fazem parte dela.
-                </p>
-
-            </div>
-
-
-            <div class="protagonismo-grid">
-
-                <div class="protagonismo-card">
-
-                    <span>
-                        💡
-                    </span>
-
-                    <h3>
-                        Criatividade
-                    </h3>
-
-                    <p>
-                        Incentivar novas ideias e maneiras diferentes
-                        de aprender e participar.
-                    </p>
-
-                </div>
-
-
-                <div class="protagonismo-card">
-
-                    <span>
-                        🤝
-                    </span>
-
-                    <h3>
-                        Cooperação
-                    </h3>
-
-                    <p>
-                        Aprender com outras pessoas e construir
-                        experiências coletivas.
-                    </p>
-
-                </div>
-
-
-                <div class="protagonismo-card">
-
-                    <span>
-                        🎯
-                    </span>
-
-                    <h3>
-                        Responsabilidade
-                    </h3>
-
-                    <p>
-                        Participar ativamente da rotina e das
-                        decisões da comunidade escolar.
-                    </p>
-
-                </div>
-
-
-                <div class="protagonismo-card">
-
-                    <span>
-                        🌱
-                    </span>
-
-                    <h3>
-                        Desenvolvimento
-                    </h3>
-
-                    <p>
-                        Desenvolver habilidades que podem acompanhar
-                        os estudantes também fora da escola.
-                    </p>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- =========================================================
-         FRASE FINAL
-    ========================================================= -->
-
-    <section class="frase-final">
-
-        <div class="aspas">
-            “
-        </div>
-
-        <h2>
-            Uma escola é feita de espaços,
-            mas principalmente das pessoas
-            que aprendem, ensinam e convivem nela.
-        </h2>
-
-        <p>
-            Colégio Estadual do Campo Castelo Branco
-        </p>
-
-    </section>
-
-
-    <!-- =========================================================
-         RODAPÉ
-    ========================================================= -->
-
-    <footer>
-
-        <div class="footer-logo">
+        <div class="logo-circle">
             ✦
         </div>
 
-        <h3>
-            Colégio Estadual do Campo Castelo Branco
-        </h3>
+        Castelo Branco
+
+    </a>
+
+
+    <div class="nav-links">
+
+        <a href="#sobre">Nossa escola</a>
+
+        <a href="#rotina">Rotina</a>
+
+        <a href="#mapa">Explorar</a>
+
+        <a href="#protagonismo">Estudantes</a>
+
+    </div>
+
+</nav>
+
+
+<!-- =========================================================
+     HERO
+========================================================= -->
+
+<header class="hero" id="inicio">
+
+
+    <div class="floating float1">
+        📚
+    </div>
+
+    <div class="floating float2">
+        🔬
+    </div>
+
+    <div class="floating float3">
+        🎨
+    </div>
+
+    <div class="floating float4">
+        💻
+    </div>
+
+
+    <div class="hero-content">
+
+        <div class="hero-small">
+            FEIRA ESCOLAR • 2026
+        </div>
+
+        <h1>
+            Conheça o
+            <span>Castelo Branco</span>
+        </h1>
 
         <p>
-            Feira Escolar • 2026
+            Entre, explore e descubra um pouco da rotina,
+            dos espaços e das pessoas que fazem parte
+            da nossa escola.
         </p>
 
-        <div class="footer-linha"></div>
+
+        <button
+            class="hero-button"
+            onclick="document.getElementById('sobre').scrollIntoView()">
+
+            COMEÇAR A EXPLORAR ↓
+
+        </button>
+
+    </div>
+
+</header>
+
+
+<!-- =========================================================
+     SOBRE
+========================================================= -->
+
+<section class="intro" id="sobre">
+
+
+    <div class="section-label">
+        01 • NOSSA ESCOLA
+    </div>
+
+    <h2 class="section-title">
+        Muito mais que uma escola.
+    </h2>
+
+    <p class="section-subtitle">
+        Um lugar onde conhecimento, convivência,
+        criatividade e participação fazem parte
+        do dia a dia.
+    </p>
+
+
+    <div class="sobre-box">
 
         <p>
-            Aprendizagem • Convivência • Participação • Futuro
+            O <strong>Colégio Estadual do Campo Castelo Branco</strong>
+            é uma escola de período integral que busca proporcionar
+            aos estudantes uma formação ampla, unindo os conhecimentos
+            das diferentes áreas do ensino ao desenvolvimento pessoal,
+            à convivência e à participação na comunidade escolar.
         </p>
 
-    </footer>
+        <p>
+            A rotina escolar acontece das
+            <strong>7h20 às 11h30</strong> no período da manhã e das
+            <strong>12h55 às 17h</strong> no período da tarde.
+            Durante esse período, os estudantes participam das aulas,
+            atividades e diferentes momentos de aprendizagem.
+        </p>
+
+        <p>
+            A escola também conta com momentos de recreio ao longo do dia.
+            Pela manhã, o recreio acontece das
+            <strong>9h às 9h15</strong> e, à tarde,
+            das <strong>15h15 às 15h30</strong>.
+        </p>
+
+        <p>
+            Por ser uma escola de período integral, os estudantes também
+            permanecem na instituição durante o horário do
+            <strong>almoço</strong>. Os alunos que estão na escola
+            naquele dia realizam a refeição juntos, fortalecendo
+            momentos de convivência e integração.
+        </p>
+
+        <p>
+            A organização do período integral acontece de acordo com
+            os dias da semana. Às <strong>segundas e quartas-feiras</strong>,
+            permanecem durante todo o dia os estudantes do
+            <strong>6º, 7º e 8º anos do Ensino Fundamental</strong>.
+        </p>
+
+        <p>
+            Já às <strong>terças e quintas-feiras</strong>, permanecem
+            em período integral os estudantes do
+            <strong>Ensino Médio e do 9º ano do Ensino Fundamental</strong>.
+        </p>
+
+        <p>
+            Outro aspecto importante é o
+            <strong>protagonismo dos estudantes</strong>.
+            A proposta busca incentivar a participação, a criatividade,
+            a responsabilidade e o envolvimento dos alunos na vida escolar.
+        </p>
+
+        <p>
+            Mais do que um espaço destinado às aulas, a escola é também
+            um ambiente de convivência, troca de experiências,
+            desenvolvimento de habilidades e construção de novas
+            possibilidades para o futuro.
+        </p>
+
+    </div>
 
 
-    <!-- =========================================================
-         BOTÃO TOPO
-    ========================================================= -->
+    <div class="numeros">
 
-    <button id="topo" onclick="voltarAoTopo()">
-        ↑
-    </button>
+        <div class="numero-card">
 
-
-    <!-- =========================================================
-         MODAL
-    ========================================================= -->
-
-    <div class="modal" id="modal">
-
-        <div class="modal-conteudo">
-
-            <button class="fechar" onclick="fecharModal()">
-                ×
-            </button>
-
-            <div class="modal-icone" id="modalIcone">
-                ✦
+            <div class="icon">
+                🕐
             </div>
 
-            <div class="modal-numero" id="modalNumero">
-                01
-            </div>
+            <h3>
+                Período Integral
+            </h3>
 
-            <h2 id="modalTitulo">
-                Espaço
-            </h2>
-
-            <p id="modalDescricao">
-                Descrição do espaço.
+            <p>
+                Uma rotina que ocupa os períodos da manhã
+                e da tarde.
             </p>
 
-            <div class="curiosidade">
+        </div>
 
-                <strong>
-                    ✦ Você sabia?
-                </strong>
 
-                <span id="modalCuriosidade">
-                    Curiosidade sobre o espaço.
-                </span>
+        <div class="numero-card">
+
+            <div class="icon">
+                🍽️
+            </div>
+
+            <h3>
+                Convivência
+            </h3>
+
+            <p>
+                O almoço também faz parte da experiência
+                de estar na escola.
+            </p>
+
+        </div>
+
+
+        <div class="numero-card">
+
+            <div class="icon">
+                💡
+            </div>
+
+            <h3>
+                Protagonismo
+            </h3>
+
+            <p>
+                Os estudantes também fazem parte
+                da construção da vida escolar.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     ROTINA
+========================================================= -->
+
+<section class="rotina" id="rotina">
+
+    <div class="rotina-inner">
+
+        <div class="section-label">
+            02 • UM DIA NA ESCOLA
+        </div>
+
+        <h2 class="section-title">
+            Acompanhe nossa rotina.
+        </h2>
+
+        <p class="section-subtitle">
+            Do primeiro horário ao final da tarde,
+            cada momento tem seu espaço.
+        </p>
+
+
+        <div class="timeline">
+
+
+            <div class="timeline-item">
+
+                <div class="timeline-dot">
+                    07:20
+                </div>
+
+                <div class="timeline-card">
+
+                    <h3>
+                        Começo do dia
+                    </h3>
+
+                    <p>
+                        Início das atividades escolares
+                        do período da manhã.
+                    </p>
+
+                </div>
 
             </div>
 
-            <button class="modal-fechar" onclick="fecharModal()">
-                Voltar aos espaços
-            </button>
+
+            <div class="timeline-item">
+
+                <div class="timeline-dot">
+                    09:00
+                </div>
+
+                <div class="timeline-card">
+
+                    <h3>
+                        Recreio
+                    </h3>
+
+                    <p>
+                        Das 9h às 9h15 acontece o
+                        recreio da manhã.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="timeline-item">
+
+                <div class="timeline-dot">
+                    11:30
+                </div>
+
+                <div class="timeline-card">
+
+                    <h3>
+                        Final da manhã
+                    </h3>
+
+                    <p>
+                        Encerramento das atividades
+                        do período da manhã.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="timeline-item">
+
+                <div class="timeline-dot">
+                    12:55
+                </div>
+
+                <div class="timeline-card">
+
+                    <h3>
+                        Retorno
+                    </h3>
+
+                    <p>
+                        Início das atividades do
+                        período da tarde.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="timeline-item">
+
+                <div class="timeline-dot">
+                    15:15
+                </div>
+
+                <div class="timeline-card">
+
+                    <h3>
+                        Recreio da tarde
+                    </h3>
+
+                    <p>
+                        Das 15h15 às 15h30 acontece
+                        o segundo recreio do dia.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="timeline-item">
+
+                <div class="timeline-dot">
+                    17:00
+                </div>
+
+                <div class="timeline-card">
+
+                    <h3>
+                        Final do dia
+                    </h3>
+
+                    <p>
+                        Encerramento das atividades
+                        escolares.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+        <div class="dias">
+
+            <div class="dia">
+
+                <span>
+                    Segunda + Quarta
+                </span>
+
+                <h3>
+                    6º, 7º e 8º anos
+                </h3>
+
+                <p>
+                    Permanecem durante todo o dia
+                    os estudantes dessas séries.
+                </p>
+
+            </div>
+
+
+            <div class="dia">
+
+                <span>
+                    Terça + Quinta
+                </span>
+
+                <h3>
+                    9º ano + Ensino Médio
+                </h3>
+
+                <p>
+                    Permanecem durante todo o dia
+                    os estudantes dessas etapas.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     MAPA
+========================================================= -->
+
+<section class="mapa-section" id="mapa">
+
+
+    <div class="mapa-intro">
+
+        <div>
+
+            <div class="section-label">
+                03 • EXPLORE
+            </div>
+
+            <h2 class="section-title">
+                Agora é sua vez.
+            </h2>
+
+            <p class="section-subtitle">
+                Clique nos pontos do mapa para conhecer
+                diferentes espaços da escola.
+            </p>
 
         </div>
 
     </div>
 
 
-    <!-- =========================================================
-         JAVASCRIPT
-    ========================================================= -->
-
-    <script>
+    <div class="mapa">
 
 
-        /* =========================================================
-           DADOS DOS ESPAÇOS
-        ========================================================= */
-
-        const espacos = [
-
-            {
-                numero: "01",
-                titulo: "Entrada",
-                icone: "🏫",
-
-                descricao:
-                    "A entrada é o primeiro contato com o ambiente escolar. É por esse espaço que estudantes, professores, funcionários e visitantes chegam à escola e iniciam sua experiência no cotidiano escolar.",
-
-                curiosidade:
-                    "Todo tour precisa começar por algum lugar — e aqui começa a nossa caminhada pela escola!"
-            },
+        <div class="mapa-legenda">
+            ✦ Clique nos espaços
+        </div>
 
 
-            {
-                numero: "02",
-                titulo: "Diretoria",
-                icone: "📋",
-
-                descricao:
-                    "A diretoria é um dos espaços responsáveis pela organização e acompanhamento da vida escolar. É onde acontecem importantes momentos de planejamento, organização e atendimento da comunidade escolar.",
-
-                curiosidade:
-                    "A organização da escola envolve muito mais do que as atividades que acontecem dentro das salas de aula."
-            },
+        <button class="mapa-ponto p1" onclick="abrirEspaco(0)">
+            <span class="emoji">🏫</span>
+            <small>Entrada</small>
+        </button>
 
 
-            {
-                numero: "03",
-                titulo: "Sala dos Professores",
-                icone: "👩‍🏫",
-
-                descricao:
-                    "A Sala dos Professores é um espaço destinado aos profissionais da educação. É utilizada para momentos de preparação, organização, conversas e troca de experiências entre os professores.",
-
-                curiosidade:
-                    "Antes de uma aula acontecer, existe todo um processo de planejamento e preparação realizado pelos professores."
-            },
+        <button class="mapa-ponto p2" onclick="abrirEspaco(1)">
+            <span class="emoji">📋</span>
+            <small>Diretoria</small>
+        </button>
 
 
-            {
-                numero: "04",
-                titulo: "Biblioteca",
-                icone: "📚",
-
-                descricao:
-                    "A biblioteca é um espaço dedicado à leitura, pesquisa e contato com diferentes conhecimentos. É um ambiente que pode estimular a curiosidade, a imaginação e o desenvolvimento dos estudantes.",
-
-                curiosidade:
-                    "Um livro pode levar o leitor para diferentes lugares sem que ele precise sair da escola."
-            },
+        <button class="mapa-ponto p3" onclick="abrirEspaco(2)">
+            <span class="emoji">👩‍🏫</span>
+            <small>Professores</small>
+        </button>
 
 
-            {
-                numero: "05",
-                titulo: "Sala de Exatas",
-                icone: "📐",
-
-                descricao:
-                    "A Sala de Exatas é destinada às áreas que envolvem raciocínio lógico, cálculos, resolução de problemas e diferentes formas de investigação matemática e científica.",
-
-                curiosidade:
-                    "Matemática não está apenas nos números: ela também está presente na tecnologia, na engenharia, na arquitetura e em diversas situações do cotidiano."
-            },
+        <button class="mapa-ponto p4" onclick="abrirEspaco(3)">
+            <span class="emoji">📚</span>
+            <small>Biblioteca</small>
+        </button>
 
 
-            {
-                numero: "06",
-                titulo: "Sala de Linguagens",
-                icone: "✍️",
-
-                descricao:
-                    "A Sala de Linguagens é um espaço relacionado ao desenvolvimento da comunicação, leitura, escrita, interpretação e diferentes formas de expressão.",
-
-                curiosidade:
-                    "A linguagem permite que as pessoas compartilhem ideias, sentimentos, conhecimentos e diferentes maneiras de enxergar o mundo."
-            },
+        <button class="mapa-ponto p5" onclick="abrirEspaco(4)">
+            <span class="emoji">📐</span>
+            <small>Exatas</small>
+        </button>
 
 
-            {
-                numero: "07",
-                titulo: "Sala de Ciências Humanas",
-                icone: "🌎",
-
-                descricao:
-                    "Na área de Ciências Humanas, os estudantes podem refletir sobre sociedade, história, geografia, cultura, relações humanas e diferentes acontecimentos que ajudam a compreender o mundo.",
-
-                curiosidade:
-                    "Estudar o passado ajuda a compreender melhor o presente e pensar em possibilidades para o futuro."
-            },
+        <button class="mapa-ponto p6" onclick="abrirEspaco(5)">
+            <span class="emoji">✍️</span>
+            <small>Linguagens</small>
+        </button>
 
 
-            {
-                numero: "08",
-                titulo: "Sala de Artes",
-                icone: "🎨",
-
-                descricao:
-                    "A Sala de Artes é um espaço de criatividade e expressão. Nela podem ser desenvolvidas atividades que envolvem diferentes linguagens artísticas e formas de representar ideias e sentimentos.",
-
-                curiosidade:
-                    "A arte pode comunicar uma ideia mesmo quando nenhuma palavra é utilizada."
-            },
+        <button class="mapa-ponto p7" onclick="abrirEspaco(6)">
+            <span class="emoji">🌎</span>
+            <small>Humanas</small>
+        </button>
 
 
-            {
-                numero: "09",
-                titulo: "Laboratório de Ciências",
-                icone: "🔬",
-
-                descricao:
-                    "O Laboratório de Ciências é um espaço que pode aproximar os estudantes de experiências, observações e atividades práticas relacionadas aos fenômenos científicos.",
-
-                curiosidade:
-                    "A ciência começa muitas vezes com uma pergunta simples: 'Por que isso acontece?'"
-            },
+        <button class="mapa-ponto p8" onclick="abrirEspaco(7)">
+            <span class="emoji">🎨</span>
+            <small>Artes</small>
+        </button>
 
 
-            {
-                numero: "10",
-                titulo: "Laboratório de Informática",
-                icone: "💻",
-
-                descricao:
-                    "O Laboratório de Informática é um espaço voltado ao uso de computadores e tecnologias digitais. Ele pode contribuir para pesquisas, atividades escolares, produção de trabalhos e desenvolvimento de habilidades digitais.",
-
-                curiosidade:
-                    "A tecnologia faz parte de diversas áreas profissionais e aprender a utilizá-la de maneira responsável é uma habilidade importante."
-            },
+        <button class="mapa-ponto p9" onclick="abrirEspaco(8)">
+            <span class="emoji">🔬</span>
+            <small>Ciências</small>
+        </button>
 
 
-            {
-                numero: "11",
-                titulo: "Espaço de Tecnologia",
-                icone: "⚙️",
-
-                descricao:
-                    "Este espaço representa a presença da tecnologia no ambiente escolar e a possibilidade de utilizar recursos digitais como ferramentas de aprendizagem, pesquisa e criação.",
-
-                curiosidade:
-                    "Tecnologia não significa apenas utilizar equipamentos: também envolve criatividade, resolução de problemas e novas formas de criar."
-            }
-
-        ];
+        <button class="mapa-ponto p10" onclick="abrirEspaco(9)">
+            <span class="emoji">💻</span>
+            <small>Informática</small>
+        </button>
 
 
-        /* =========================================================
-           CRIAR CARDS
-        ========================================================= */
-
-        const listaEspacos =
-            document.getElementById("listaEspacos");
+        <button class="mapa-ponto p11" onclick="abrirEspaco(10)">
+            <span class="emoji">⚙️</span>
+            <small>Tecnologia</small>
+        </button>
 
 
-        espacos.forEach(function(espaco, index) {
+    </div>
 
-            const card =
-                document.createElement("button");
-
-            card.className = "espaco";
-
-            card.onclick = function() {
-                abrirModal(index);
-            };
+</section>
 
 
-            card.innerHTML = `
+<!-- =========================================================
+     PROTAGONISMO
+========================================================= -->
 
-                <span class="espaco-numero">
-                    ${espaco.numero}
-                </span>
+<section class="protagonismo" id="protagonismo">
 
-                <span class="espaco-icone">
-                    ${espaco.icone}
-                </span>
+    <div class="protagonismo-inner">
+
+        <div class="section-label">
+            04 • QUEM FAZ A ESCOLA
+        </div>
+
+        <h2 class="section-title">
+            Uma escola feita por pessoas.
+        </h2>
+
+        <p class="section-subtitle">
+            O protagonismo estudantil ajuda a transformar
+            a escola em um espaço de participação.
+        </p>
+
+
+        <div class="protagonismo-grid">
+
+
+            <div class="pro-card">
+
+                <div class="big">
+                    💡
+                </div>
 
                 <h3>
-                    ${espaco.titulo}
+                    Criatividade
                 </h3>
 
                 <p>
-                    Clique para conhecer este espaço.
+                    Novas ideias e diferentes formas
+                    de aprender.
                 </p>
 
-                <span class="espaco-seta">
-                    →
-                </span>
+            </div>
 
-            `;
 
+            <div class="pro-card">
 
-            listaEspacos.appendChild(card);
+                <div class="big">
+                    🤝
+                </div>
 
-        });
+                <h3>
+                    Cooperação
+                </h3>
 
+                <p>
+                    Construir experiências
+                    junto com outras pessoas.
+                </p>
 
-        /* =========================================================
-           ABRIR MODAL
-        ========================================================= */
+            </div>
 
-        function abrirModal(index) {
 
-            const espaco = espacos[index];
+            <div class="pro-card">
 
-            document.getElementById("modalIcone")
-                .textContent = espaco.icone;
+                <div class="big">
+                    🎯
+                </div>
 
-            document.getElementById("modalNumero")
-                .textContent = espaco.numero;
+                <h3>
+                    Responsabilidade
+                </h3>
 
-            document.getElementById("modalTitulo")
-                .textContent = espaco.titulo;
+                <p>
+                    Participar ativamente da
+                    comunidade escolar.
+                </p>
 
-            document.getElementById("modalDescricao")
-                .textContent = espaco.descricao;
+            </div>
 
-            document.getElementById("modalCuriosidade")
-                .textContent = espaco.curiosidade;
 
+            <div class="pro-card">
 
-            document.getElementById("modal")
-                .classList.add("ativo");
+                <div class="big">
+                    🌱
+                </div>
 
+                <h3>
+                    Desenvolvimento
+                </h3>
 
-            document.body.style.overflow = "hidden";
+                <p>
+                    Desenvolver habilidades
+                    para o presente e o futuro.
+                </p>
 
-        }
+            </div>
 
 
-        /* =========================================================
-           FECHAR MODAL
-        ========================================================= */
+        </div>
 
-        function fecharModal() {
+    </div>
 
-            document.getElementById("modal")
-                .classList.remove("ativo");
+</section>
 
-            document.body.style.overflow = "auto";
 
-        }
+<!-- =========================================================
+     CURIOSIDADE
+========================================================= -->
 
+<section class="curiosidade">
 
-        /* =========================================================
-           CLICAR FORA DO MODAL
-        ========================================================= */
+    <div class="curiosidade-box">
 
-        document.getElementById("modal")
-            .addEventListener("click", function(event) {
+        <div class="small">
+            VOCÊ SABIA?
+        </div>
 
-                if (event.target === this) {
+        <h2 id="curiosidadeTexto">
+            A escola também é um espaço de convivência,
+            não apenas de aprendizagem.
+        </h2>
 
-                    fecharModal();
+        <p>
+            Clique no botão para descobrir outra curiosidade.
+        </p>
 
-                }
+        <button id="novaCuriosidade">
+            ✦ Outra curiosidade
+        </button>
 
-            });
+    </div>
 
+</section>
 
-        /* =========================================================
-           ESC FECHA MODAL
-        ========================================================= */
 
-        document.addEventListener("keydown", function(event) {
+<!-- =========================================================
+     FINAL
+========================================================= -->
 
-            if (event.key === "Escape") {
+<section class="final">
 
-                fecharModal();
+    <div class="final-symbol">
+        ✦
+    </div>
 
-            }
+    <h2>
+        Cada espaço guarda uma história.
+        Cada pessoa ajuda a construir a próxima.
+    </h2>
 
-        });
+    <p>
+        Colégio Estadual do Campo Castelo Branco
+        • Feira Escolar 2026
+    </p>
 
+</section>
 
-        /* =========================================================
-           NAVBAR AO ROLAR
-        ========================================================= */
 
-        const navbar =
-            document.getElementById("navbar");
+<!-- =========================================================
+     FOOTER
+========================================================= -->
 
+<footer>
 
-        window.addEventListener("scroll", function() {
+    <h3>
+        Colégio Estadual do Campo Castelo Branco
+    </h3>
 
-            if (window.scrollY > 50) {
+    <p>
+        Feira Escolar • 2026
+    </p>
 
-                navbar.classList.add("scrolled");
+    <p>
+        Aprendizagem • Convivência • Participação • Futuro
+    </p>
 
-            } else {
+</footer>
 
-                navbar.classList.remove("scrolled");
 
-            }
+<!-- =========================================================
+     MODAL
+========================================================= -->
 
-        });
+<div class="modal" id="modal">
 
+    <div class="modal-box">
 
-        /* =========================================================
-           BOTÃO VOLTAR AO TOPO
-        ========================================================= */
+        <button class="close" onclick="fecharModal()">
+            ×
+        </button>
 
-        const botaoTopo =
-            document.getElementById("topo");
 
+        <div class="modal-emoji" id="modalEmoji">
+            🏫
+        </div>
 
-        window.addEventListener("scroll", function() {
 
-            if (window.scrollY > 500) {
+        <div class="modal-number" id="modalNumero">
+            ESPAÇO 01
+        </div>
 
-                botaoTopo.classList.add("visivel");
 
-            } else {
+        <h2 id="modalTitulo">
+            Entrada
+        </h2>
 
-                botaoTopo.classList.remove("visivel");
 
-            }
+        <p id="modalDescricao">
+        </p>
 
-        });
 
+        <div class="fact">
 
-        function voltarAoTopo() {
+            <strong>
+                ✦ Você sabia?
+            </strong>
 
-            window.scrollTo({
+            <span id="modalCuriosidade">
+            </span>
 
-                top: 0,
+        </div>
 
-                behavior: "smooth"
 
-            });
+        <button
+            class="modal-button"
+            onclick="fecharModal()">
 
-        }
+            Voltar para o mapa
 
+        </button>
 
-        /* =========================================================
-           FECHAR MODAL AO CLICAR EM LINK
-        ========================================================= */
+    </div>
 
-        document.querySelectorAll(".menu a")
-            .forEach(function(link) {
+</div>
 
-                link.addEventListener("click", function() {
 
-                    fecharModal();
+<!-- =========================================================
+     BOTÃO TOPO
+========================================================= -->
 
-                });
+<button class="top" id="topButton" onclick="topo()">
+    ↑
+</button>
 
-            });
 
+<script>
 
-    </script>
+/* =========================================================
+   CURSOR
+========================================================= */
+
+const cursor =
+document.getElementById("cursor");
+
+document.addEventListener("mousemove",function(e){
+
+    cursor.style.left=e.clientX+"px";
+    cursor.style.top=e.clientY+"px";
+
+});
+
+
+/* =========================================================
+   DADOS DOS ESPAÇOS
+========================================================= */
+
+const espacos=[
+
+{
+    numero:"01",
+    titulo:"Entrada",
+    emoji:"🏫",
+    descricao:"A entrada é o primeiro contato com o ambiente escolar. É por esse espaço que estudantes, professores, funcionários e visitantes chegam à escola e iniciam sua experiência no cotidiano escolar.",
+    curiosidade:"Todo tour precisa começar por algum lugar — e aqui começa a nossa caminhada pela escola!"
+},
+
+{
+    numero:"02",
+    titulo:"Diretoria",
+    emoji:"📋",
+    descricao:"A diretoria é um dos espaços responsáveis pela organização e acompanhamento da vida escolar. É onde acontecem momentos de planejamento, organização e atendimento da comunidade escolar.",
+    curiosidade:"A organização da escola envolve muito mais do que as atividades que acontecem dentro das salas de aula."
+},
+
+{
+    numero:"03",
+    titulo:"Sala dos Professores",
+    emoji:"👩‍🏫",
+    descricao:"A Sala dos Professores é um espaço destinado aos profissionais da educação. É utilizada para momentos de preparação, organização, conversas e troca de experiências.",
+    curiosidade:"Antes de uma aula acontecer, existe todo um processo de planejamento e preparação realizado pelos professores."
+},
+
+{
+    numero:"04",
+    titulo:"Biblioteca",
+    emoji:"📚",
+    descricao:"A biblioteca é um espaço dedicado à leitura, pesquisa e contato com diferentes conhecimentos. É um ambiente que pode estimular a curiosidade, a imaginação e o desenvolvimento dos estudantes.",
+    curiosidade:"Um livro pode levar o leitor para diferentes lugares sem que ele precise sair da escola."
+},
+
+{
+    numero:"05",
+    titulo:"Sala de Exatas",
+    emoji:"📐",
+    descricao:"A Sala de Exatas está relacionada às áreas que envolvem raciocínio lógico, cálculos, resolução de problemas e investigação matemática e científica.",
+    curiosidade:"A matemática também está presente na tecnologia, engenharia, arquitetura e em diversas situações do cotidiano."
+},
+
+{
+    numero:"06",
+    titulo:"Sala de Linguagens",
+    emoji:"✍️",
+    descricao:"A Sala de Linguagens é um espaço relacionado ao desenvolvimento da comunicação, leitura, escrita, interpretação e diferentes formas de expressão.",
+    curiosidade:"A linguagem permite compartilhar ideias, sentimentos, conhecimentos e diferentes maneiras de enxergar o mundo."
+},
+
+{
+    numero:"07",
+    titulo:"Sala de Ciências Humanas",
+    emoji:"🌎",
+    descricao:"Na área de Ciências Humanas, os estudantes podem refletir sobre sociedade, história, geografia, cultura, relações humanas e diferentes acontecimentos.",
+    curiosidade:"Estudar o passado ajuda a compreender melhor o presente e pensar em possibilidades para o futuro."
+},
+
+{
+    numero:"08",
+    titulo:"Sala de Artes",
+    emoji:"🎨",
+    descricao:"A Sala de Artes é um espaço de criatividade e expressão. Nela podem ser desenvolvidas atividades que envolvem diferentes linguagens artísticas.",
+    curiosidade:"A arte pode comunicar uma ideia mesmo quando nenhuma palavra é utilizada."
+},
+
+{
+    numero:"09",
+    titulo:"Laboratório de Ciências",
+    emoji:"🔬",
+    descricao:"O Laboratório de Ciências aproxima os estudantes de experiências, observações e atividades práticas relacionadas aos fenômenos científicos.",
+    curiosidade:"A ciência começa muitas vezes com uma pergunta simples: por que isso acontece?"
+},
+
+{
+    numero:"10",
+    titulo:"Laboratório de Informática",
+    emoji:"💻",
+    descricao:"O Laboratório de Informática é um espaço voltado ao uso de computadores e tecnologias digitais, contribuindo para pesquisas, atividades escolares e produção de trabalhos.",
+    curiosidade:"A tecnologia está presente em diversas áreas profissionais e aprender a utilizá-la de maneira responsável é uma habilidade importante."
+},
+
+{
+    numero:"11",
+    titulo:"Espaço de Tecnologia",
+    emoji:"⚙️",
+    descricao:"Este espaço representa a presença da tecnologia no ambiente escolar e a possibilidade de utilizar recursos digitais como ferramentas de aprendizagem, pesquisa e criação.",
+    curiosidade:"Tecnologia não significa apenas utilizar equipamentos: também envolve criatividade, resolução de problemas e novas formas de criar."
+}
+
+];
+
+
+/* =========================================================
+   MODAL
+========================================================= */
+
+function abrirEspaco(index){
+
+    const espaco=espacos[index];
+
+    document.getElementById("modalEmoji").textContent=espaco.emoji;
+
+    document.getElementById("modalNumero").textContent=
+        "ESPAÇO "+espaco.numero;
+
+    document.getElementById("modalTitulo").textContent=
+        espaco.titulo;
+
+    document.getElementById("modalDescricao").textContent=
+        espaco.descricao;
+
+    document.getElementById("modalCuriosidade").textContent=
+        espaco.curiosidade;
+
+    document.getElementById("modal").classList.add("active");
+
+    document.body.style.overflow="hidden";
+
+}
+
+
+function fecharModal(){
+
+    document.getElementById("modal")
+    .classList.remove("active");
+
+    document.body.style.overflow="auto";
+
+}
+
+
+document.getElementById("modal")
+.addEventListener("click",function(e){
+
+    if(e.target===this){
+
+        fecharModal();
+
+    }
+
+});
+
+
+document.addEventListener("keydown",function(e){
+
+    if(e.key==="Escape"){
+
+        fecharModal();
+
+    }
+
+});
+
+
+/* =========================================================
+   CURIOSIDADES
+========================================================= */
+
+const curiosidades=[
+
+"A escola também é um espaço de convivência, não apenas de aprendizagem.",
+
+"O período integral permite que diferentes momentos de aprendizagem e convivência façam parte da rotina.",
+
+"A biblioteca pode ser uma porta de entrada para novos mundos através da leitura.",
+
+"A ciência começa muitas vezes com uma pergunta.",
+
+"A criatividade também é uma forma de aprender.",
+
+"Os estudantes fazem parte da construção da comunidade escolar.",
+
+"Aprender envolve conhecimento, experiências, relações e participação.",
+
+"A tecnologia pode ser uma ferramenta para pesquisar, criar e compartilhar conhecimento.",
+
+"Cada ambiente da escola possui uma função dentro da rotina escolar."
+
+];
+
+
+let indice=0;
+
+
+document.getElementById("novaCuriosidade")
+.addEventListener("click",function(){
+
+    indice++;
+
+    if(indice>=curiosidades.length){
+
+        indice=0;
+
+    }
+
+    const texto=
+    document.getElementById("curiosidadeTexto");
+
+    texto.style.opacity="0";
+
+    setTimeout(function(){
+
+        texto.textContent=
+        curiosidades[indice];
+
+        texto.style.opacity="1";
+
+    },200);
+
+});
+
+
+/* =========================================================
+   BOTÃO TOPO
+========================================================= */
+
+const topButton=
+document.getElementById("topButton");
+
+
+window.addEventListener("scroll",function(){
+
+    if(window.scrollY>500){
+
+        topButton.classList.add("show");
+
+    }else{
+
+        topButton.classList.remove("show");
+
+    }
+
+});
+
+
+function topo(){
+
+    window.scrollTo({
+
+        top:0,
+
+        behavior:"smooth"
+
+    });
+
+}
+
+</script>
 
 
 </body>
-
 </html>
