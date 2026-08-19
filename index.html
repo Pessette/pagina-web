@@ -2,3180 +2,2395 @@
 <html lang="pt-BR">
 
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Conheça o Castelo Branco | Feira Escolar 2026</title>
+
+<style>
+
+/* =========================================================
+   RESET
+========================================================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:"Segoe UI",Arial,sans-serif;
+    background:#f4f6f1;
+    color:#26352c;
+    overflow-x:hidden;
+}
+
+button{
+    font-family:inherit;
+}
+
+:root{
+    --verde:#244532;
+    --verde2:#315b42;
+    --verde3:#66816e;
+    --verde-claro:#dfe9e1;
+    --creme:#f4f6f1;
+    --branco:#ffffff;
+    --dourado:#c1a36a;
+    --dourado2:#e1cfaa;
+    --texto:#29362e;
+    --cinza:#6f7972;
+}
+
+
+/* =========================================================
+   CURSOR DECORATIVO
+========================================================= */
+
+.cursor-dot{
+    position:fixed;
+    width:12px;
+    height:12px;
+    border-radius:50%;
+    background:var(--dourado);
+    pointer-events:none;
+    z-index:99999;
+    transform:translate(-50%,-50%);
+    mix-blend-mode:multiply;
+}
+
+@media(max-width:700px){
+    .cursor-dot{
+        display:none;
+    }
+}
+
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+/* =========================================================
+   NAVBAR
+========================================================= */
 
-    <meta name="description"
-        content="Conheça o Colégio Estadual do Campo Castelo Branco, sua rotina, espaços, identidade e comunidade escolar.">
+nav{
+    position:fixed;
+    top:18px;
+    left:50%;
+    transform:translateX(-50%);
+
+    width:min(1100px,92%);
+
+    padding:12px 18px;
+
+    background:rgba(255,255,255,.78);
+    backdrop-filter:blur(15px);
+
+    border:1px solid rgba(36,69,50,.1);
+    border-radius:50px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
 
-    <title>Colégio Estadual do Campo Castelo Branco</title>
+    z-index:5000;
+
+    box-shadow:0 10px 35px rgba(36,69,50,.08);
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    color:var(--verde);
+    font-weight:700;
+}
 
-    <style>
+.logo-circle{
+    width:38px;
+    height:38px;
 
-        /* =========================================================
-           CONFIGURAÇÕES GERAIS
-        ========================================================= */
+    border-radius:50%;
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+    background:var(--verde);
 
-        :root {
+    color:white;
 
-            --verde-escuro: #17291f;
-            --verde-profundo: #203b2b;
-            --verde: #31563f;
-            --verde-medio: #54725f;
-            --verde-claro: #dfe9e2;
-            --verde-suave: #edf3ee;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
 
-            --dourado: #b99b5d;
-            --dourado-claro: #ddc995;
+.nav-links{
+    display:flex;
+    gap:25px;
+}
 
-            --creme: #f8f8f3;
-            --branco: #ffffff;
+.nav-links a{
+    text-decoration:none;
+    color:#506057;
+    font-size:13px;
+    transition:.2s;
+}
 
-            --texto: #26352c;
-            --texto-claro: #66736b;
+.nav-links a:hover{
+    color:var(--verde);
+}
 
-            --sombra: 0 20px 50px rgba(23, 41, 31, 0.10);
 
-            --radius: 24px;
-        }
+/* =========================================================
+   HERO
+========================================================= */
 
-        html {
-            scroll-behavior: smooth;
-        }
+.hero{
+    min-height:100vh;
 
-        body {
-            font-family: "Segoe UI", Arial, sans-serif;
-            background: var(--creme);
-            color: var(--texto);
-            line-height: 1.7;
-            overflow-x: hidden;
-        }
+    position:relative;
+    overflow:hidden;
 
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
+    background:
+        radial-gradient(circle at 20% 20%,rgba(193,163,106,.22),transparent 25%),
+        radial-gradient(circle at 85% 70%,rgba(103,135,111,.22),transparent 30%),
+        #e9eee8;
 
-        button {
-            font-family: inherit;
-        }
+    display:flex;
+    align-items:center;
+    justify-content:center;
 
+    text-align:center;
 
-        /* =========================================================
-           BARRA DE NAVEGAÇÃO
-        ========================================================= */
+    padding:120px 20px 70px;
+}
 
-        .navbar {
+.hero-content{
+    position:relative;
+    z-index:3;
 
-            position: fixed;
-            top: 0;
-            left: 0;
+    max-width:850px;
 
-            width: 100%;
+    animation:heroEntrada 1.2s ease;
+}
 
-            z-index: 5000;
+@keyframes heroEntrada{
+    from{
+        opacity:0;
+        transform:translateY(35px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
 
-            padding: 18px 5%;
+.hero-small{
+    display:inline-block;
 
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+    color:var(--dourado);
 
-            background: rgba(23, 41, 31, 0.86);
+    font-size:12px;
+    font-weight:700;
 
-            backdrop-filter: blur(16px);
+    letter-spacing:4px;
 
-            border-bottom: 1px solid rgba(255,255,255,0.08);
+    margin-bottom:22px;
+}
 
-            transition: 0.3s;
-        }
+.hero h1{
+    font-family:Georgia,serif;
 
-        .navbar.scrolled {
-            padding: 12px 5%;
-            background: rgba(23, 41, 31, 0.96);
-        }
+    font-size:clamp(48px,8vw,88px);
 
-        .logo {
+    line-height:.98;
 
-            display: flex;
-            align-items: center;
-            gap: 12px;
+    font-weight:500;
 
-            color: white;
+    color:var(--verde);
 
-            font-weight: 600;
+    margin-bottom:25px;
+}
 
-            font-size: 15px;
-        }
+.hero h1 span{
+    color:var(--dourado);
+}
 
-        .logo-icon {
+.hero p{
+    max-width:650px;
 
-            width: 40px;
-            height: 40px;
+    margin:auto;
 
-            border-radius: 12px;
+    color:#667169;
 
-            display: grid;
-            place-items: center;
+    font-size:18px;
+}
 
-            color: var(--dourado-claro);
+.hero-button{
+    margin-top:35px;
 
-            border: 1px solid rgba(221,201,149,0.45);
+    border:none;
 
-            font-size: 18px;
-        }
+    padding:15px 28px;
 
-        .menu {
+    border-radius:50px;
 
-            display: flex;
-            gap: 28px;
+    background:var(--verde);
 
-            list-style: none;
-        }
+    color:white;
 
-        .menu a {
+    cursor:pointer;
 
-            color: rgba(255,255,255,0.75);
+    transition:.3s;
 
-            font-size: 13px;
+    box-shadow:0 12px 25px rgba(36,69,50,.18);
+}
 
-            transition: 0.25s;
-        }
+.hero-button:hover{
+    transform:translateY(-5px);
+    background:var(--verde2);
+}
 
-        .menu a:hover {
-            color: var(--dourado-claro);
-        }
 
-        .menu-mobile {
+/* ELEMENTOS FLUTUANTES */
 
-            display: none;
+.floating{
+    position:absolute;
 
-            color: white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
 
-            border: none;
+    border-radius:22px;
 
-            background: transparent;
+    background:white;
 
-            font-size: 25px;
+    box-shadow:0 15px 35px rgba(36,69,50,.1);
 
-            cursor: pointer;
-        }
+    animation:flutuar 5s ease-in-out infinite;
+}
 
+.float1{
+    width:75px;
+    height:75px;
+    top:24%;
+    left:9%;
+    font-size:30px;
+}
 
-        /* =========================================================
-           HERO / ABERTURA
-        ========================================================= */
+.float2{
+    width:90px;
+    height:90px;
+    right:10%;
+    top:30%;
+    font-size:35px;
+    animation-delay:1s;
+}
 
-        .hero {
+.float3{
+    width:65px;
+    height:65px;
+    left:17%;
+    bottom:17%;
+    font-size:26px;
+    animation-delay:2s;
+}
 
-            min-height: 100vh;
+.float4{
+    width:80px;
+    height:80px;
+    right:18%;
+    bottom:15%;
+    font-size:30px;
+    animation-delay:1.5s;
+}
 
-            position: relative;
+@keyframes flutuar{
+    0%,100%{
+        transform:translateY(0) rotate(0);
+    }
+    50%{
+        transform:translateY(-15px) rotate(4deg);
+    }
+}
 
-            overflow: hidden;
+@media(max-width:700px){
+    .floating{
+        opacity:.45;
+        transform:scale(.7);
+    }
+}
 
-            display: flex;
-            align-items: center;
 
-            padding: 130px 8% 80px;
+/* =========================================================
+   INTRODUÇÃO
+========================================================= */
 
-            color: white;
+.intro{
+    max-width:1050px;
 
-            background:
+    margin:auto;
 
-                radial-gradient(
-                    circle at 80% 20%,
-                    rgba(185,155,93,0.16),
-                    transparent 28%
-                ),
+    padding:110px 25px;
+}
 
-                radial-gradient(
-                    circle at 15% 80%,
-                    rgba(84,114,95,0.25),
-                    transparent 30%
-                ),
+.section-label{
+    color:var(--dourado);
 
-                linear-gradient(
-                    135deg,
-                    #17291f,
-                    #274532 55%,
-                    #1d3427
-                );
-        }
+    font-size:12px;
 
-        /* círculos decorativos */
+    font-weight:700;
 
-        .hero::before {
+    letter-spacing:3px;
 
-            content: "";
+    text-transform:uppercase;
 
-            position: absolute;
+    margin-bottom:10px;
+}
 
-            width: 550px;
-            height: 550px;
+.section-title{
+    font-family:Georgia,serif;
 
-            border: 1px solid rgba(255,255,255,0.07);
+    color:var(--verde);
 
-            border-radius: 50%;
+    font-size:clamp(34px,5vw,52px);
 
-            right: -180px;
-            top: -160px;
-        }
+    font-weight:500;
 
-        .hero::after {
+    margin-bottom:18px;
+}
 
-            content: "";
+.section-subtitle{
+    color:var(--cinza);
 
-            position: absolute;
+    max-width:650px;
+}
 
-            width: 350px;
-            height: 350px;
 
-            border: 1px solid rgba(221,201,149,0.12);
+/* =========================================================
+   SOBRE — CARTA INTERATIVA
+========================================================= */
 
-            border-radius: 50%;
+.sobre-box{
+    margin-top:45px;
 
-            left: -170px;
-            bottom: -170px;
-        }
+    background:white;
 
-        .hero-content {
+    border-radius:30px;
 
-            position: relative;
+    padding:45px;
 
-            z-index: 2;
+    box-shadow:0 20px 60px rgba(36,69,50,.08);
 
-            max-width: 850px;
-        }
+    position:relative;
 
-        .mini-label {
+    overflow:hidden;
+}
 
-            display: inline-flex;
+.sobre-box::after{
+    content:"";
 
-            align-items: center;
+    position:absolute;
 
-            gap: 10px;
+    width:250px;
+    height:250px;
 
-            padding: 8px 15px;
+    border-radius:50%;
 
-            border-radius: 30px;
+    border:1px solid rgba(193,163,106,.25);
 
-            background: rgba(255,255,255,0.07);
+    right:-100px;
+    bottom:-100px;
+}
 
-            border: 1px solid rgba(255,255,255,0.12);
+.sobre-box p{
+    color:#59655d;
 
-            color: var(--dourado-claro);
+    margin-bottom:18px;
+}
 
-            text-transform: uppercase;
+.sobre-box strong{
+    color:var(--verde);
+}
 
-            letter-spacing: 2px;
 
-            font-size: 11px;
+/* =========================================================
+   NÚMEROS
+========================================================= */
 
-            margin-bottom: 25px;
+.numeros{
+    display:grid;
 
-            animation: aparecer 1s ease;
-        }
+    grid-template-columns:repeat(3,1fr);
 
-        .mini-label::before {
+    gap:18px;
 
-            content: "";
+    margin-top:25px;
+}
 
-            width: 7px;
-            height: 7px;
+.numero-card{
+    background:var(--verde);
 
-            border-radius: 50%;
+    color:white;
 
-            background: var(--dourado);
-        }
+    border-radius:22px;
 
-        .hero h1 {
+    padding:30px;
 
-            font-family: Georgia, "Times New Roman", serif;
+    position:relative;
 
-            font-weight: 400;
+    overflow:hidden;
 
-            font-size: clamp(45px, 7vw, 85px);
+    transition:.3s;
+}
 
-            line-height: 1.04;
+.numero-card:hover{
+    transform:translateY(-7px);
+}
 
-            max-width: 900px;
+.numero-card::after{
+    content:"";
 
-            margin-bottom: 28px;
+    position:absolute;
 
-            animation: subir 1s ease;
-        }
+    width:100px;
+    height:100px;
 
-        .hero h1 span {
-            color: var(--dourado-claro);
-        }
+    border-radius:50%;
 
-        .hero-description {
+    border:1px solid rgba(255,255,255,.15);
 
-            max-width: 680px;
+    right:-40px;
+    bottom:-40px;
+}
 
-            color: rgba(255,255,255,0.74);
+.numero-card .icon{
+    font-size:27px;
+    margin-bottom:18px;
+}
 
-            font-size: 18px;
+.numero-card h3{
+    font-family:Georgia,serif;
 
-            margin-bottom: 35px;
+    font-size:22px;
 
-            animation: subir 1.2s ease;
-        }
+    margin-bottom:6px;
+}
 
-        .hero-buttons {
+.numero-card p{
+    color:rgba(255,255,255,.68);
 
-            display: flex;
+    font-size:13px;
+}
 
-            flex-wrap: wrap;
 
-            gap: 14px;
+/* =========================================================
+   ROTINA — LINHA DO TEMPO
+========================================================= */
 
-            animation: subir 1.4s ease;
-        }
+.rotina{
+    background:var(--verde);
 
-        .btn {
+    color:white;
 
-            display: inline-flex;
+    padding:110px 25px;
+}
 
-            align-items: center;
+.rotina-inner{
+    max-width:1050px;
+    margin:auto;
+}
 
-            justify-content: center;
+.rotina .section-title{
+    color:white;
+}
 
-            gap: 10px;
+.rotina .section-subtitle{
+    color:rgba(255,255,255,.62);
+}
 
-            padding: 14px 23px;
+.timeline{
+    margin-top:60px;
 
-            border-radius: 50px;
+    position:relative;
+}
 
-            border: 1px solid transparent;
+.timeline::before{
+    content:"";
 
-            cursor: pointer;
+    position:absolute;
 
-            transition: 0.3s;
+    left:30px;
 
-            font-size: 14px;
-        }
+    top:0;
+    bottom:0;
 
-        .btn-primary {
+    width:2px;
 
-            background: var(--dourado);
+    background:rgba(255,255,255,.15);
+}
 
-            color: #18271e;
+.timeline-item{
+    position:relative;
 
-            font-weight: 700;
-        }
+    display:flex;
 
-        .btn-primary:hover {
+    gap:30px;
 
-            transform: translateY(-3px);
+    margin-bottom:38px;
+}
 
-            box-shadow: 0 12px 25px rgba(185,155,93,0.25);
-        }
+.timeline-dot{
+    width:62px;
+    height:62px;
 
-        .btn-outline {
+    flex-shrink:0;
 
-            border-color: rgba(255,255,255,0.2);
+    border-radius:50%;
 
-            color: white;
+    background:var(--dourado);
 
-            background: rgba(255,255,255,0.04);
-        }
+    color:white;
 
-        .btn-outline:hover {
+    display:flex;
+    align-items:center;
+    justify-content:center;
 
-            background: rgba(255,255,255,0.1);
+    font-weight:700;
 
-            transform: translateY(-3px);
-        }
+    z-index:2;
 
+    box-shadow:0 0 0 8px rgba(193,163,106,.08);
+}
 
-        /* =========================================================
-           INDICADOR HERO
-        ========================================================= */
+.timeline-card{
+    background:rgba(255,255,255,.07);
 
-        .hero-info {
+    border:1px solid rgba(255,255,255,.1);
 
-            position: absolute;
+    border-radius:20px;
 
-            right: 7%;
-            bottom: 70px;
+    padding:24px 28px;
 
-            z-index: 2;
+    flex:1;
 
-            display: grid;
+    transition:.3s;
+}
 
-            grid-template-columns: repeat(3, 1fr);
+.timeline-card:hover{
+    background:rgba(255,255,255,.12);
 
-            gap: 10px;
+    transform:translateX(5px);
+}
 
-            max-width: 430px;
+.timeline-card h3{
+    font-family:Georgia,serif;
 
-            width: 100%;
-        }
+    font-size:21px;
 
-        .hero-info-card {
+    margin-bottom:5px;
+}
 
-            padding: 18px;
+.timeline-card p{
+    color:rgba(255,255,255,.62);
 
-            border-radius: 18px;
+    font-size:14px;
+}
 
-            background: rgba(255,255,255,0.06);
 
-            border: 1px solid rgba(255,255,255,0.09);
+/* =========================================================
+   DIAS
+========================================================= */
 
-            backdrop-filter: blur(10px);
+.dias{
+    display:grid;
 
-            text-align: center;
-        }
+    grid-template-columns:1fr 1fr;
 
-        .hero-info-card strong {
+    gap:20px;
 
-            display: block;
+    margin-top:30px;
+}
 
-            font-family: Georgia, serif;
+.dia{
+    padding:28px;
 
-            color: var(--dourado-claro);
+    background:rgba(255,255,255,.06);
 
-            font-size: 22px;
-        }
+    border-radius:20px;
 
-        .hero-info-card span {
+    border:1px solid rgba(255,255,255,.1);
+}
 
-            font-size: 10px;
+.dia span{
+    color:var(--dourado2);
 
-            color: rgba(255,255,255,0.55);
+    font-size:12px;
 
-            text-transform: uppercase;
+    text-transform:uppercase;
 
-            letter-spacing: 1px;
-        }
+    letter-spacing:2px;
+}
 
+.dia h3{
+    font-family:Georgia,serif;
 
-        /* =========================================================
-           SEÇÕES
-        ========================================================= */
+    font-size:23px;
 
-        section {
-            padding: 110px 7%;
-        }
+    margin:7px 0;
+}
 
-        .section-container {
+.dia p{
+    color:rgba(255,255,255,.62);
 
-            max-width: 1150px;
+    font-size:14px;
+}
 
-            margin: auto;
-        }
 
-        .section-heading {
+/* =========================================================
+   MAPA DA ESCOLA
+========================================================= */
 
-            max-width: 700px;
+.mapa-section{
+    padding:110px 25px;
 
-            margin-bottom: 55px;
-        }
+    max-width:1100px;
 
-        .section-heading.center {
+    margin:auto;
+}
 
-            margin-left: auto;
-            margin-right: auto;
+.mapa-intro{
+    display:flex;
 
-            text-align: center;
-        }
+    justify-content:space-between;
 
-        .eyebrow {
+    align-items:end;
 
-            color: var(--dourado);
+    gap:30px;
 
-            font-size: 11px;
+    margin-bottom:45px;
+}
 
-            text-transform: uppercase;
+.mapa{
+    min-height:600px;
 
-            letter-spacing: 3px;
+    background:
+        linear-gradient(rgba(255,255,255,.6) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(255,255,255,.6) 1px,transparent 1px),
+        #e7eee8;
 
-            font-weight: 700;
+    background-size:40px 40px;
 
-            margin-bottom: 12px;
-        }
+    border-radius:35px;
 
-        .section-heading h2 {
+    position:relative;
 
-            font-family: Georgia, "Times New Roman", serif;
+    overflow:hidden;
 
-            color: var(--verde-escuro);
+    border:1px solid rgba(36,69,50,.1);
 
-            font-size: clamp(34px, 5vw, 50px);
+    box-shadow:0 20px 60px rgba(36,69,50,.08);
+}
 
-            line-height: 1.15;
+.mapa::before{
+    content:"";
 
-            font-weight: 400;
+    position:absolute;
 
-            margin-bottom: 15px;
-        }
+    inset:30px;
 
-        .section-heading p {
+    border:2px dashed rgba(49,91,66,.18);
 
-            color: var(--texto-claro);
+    border-radius:25px;
+}
 
-            font-size: 16px;
-        }
+.mapa-legenda{
+    position:absolute;
 
+    left:40px;
+    top:40px;
 
-        /* =========================================================
-           SOBRE A ESCOLA
-        ========================================================= */
+    background:white;
 
-        .sobre {
+    padding:12px 18px;
 
-            background: var(--creme);
+    border-radius:30px;
 
-            position: relative;
-        }
+    font-size:12px;
 
-        .sobre-grid {
+    color:var(--verde);
 
-            display: grid;
+    box-shadow:0 8px 20px rgba(36,69,50,.08);
+}
 
-            grid-template-columns: 1.1fr 0.9fr;
 
-            gap: 65px;
+/* =========================================================
+   PONTOS DO MAPA
+========================================================= */
 
-            align-items: center;
-        }
+.mapa-ponto{
+    position:absolute;
 
-        .sobre-texto p {
+    width:90px;
+    height:90px;
 
-            color: #536158;
+    border:none;
 
-            margin-bottom: 20px;
+    border-radius:24px;
 
-            font-size: 16px;
-        }
+    background:white;
 
-        .sobre-texto strong {
-            color: var(--verde);
-        }
+    box-shadow:0 10px 25px rgba(36,69,50,.12);
 
-        .frase-destaque {
+    cursor:pointer;
 
-            margin-top: 30px;
+    transition:.3s;
 
-            padding: 25px 28px;
+    z-index:3;
+}
 
-            border-left: 3px solid var(--dourado);
+.mapa-ponto:hover{
+    transform:scale(1.12) rotate(-2deg);
 
-            background: white;
+    box-shadow:0 20px 40px rgba(36,69,50,.2);
 
-            border-radius: 0 18px 18px 0;
+    background:var(--verde);
 
-            box-shadow: var(--sombra);
+    color:white;
+}
 
-            font-family: Georgia, serif;
+.mapa-ponto .emoji{
+    display:block;
 
-            font-size: 20px;
+    font-size:25px;
 
-            color: var(--verde-escuro);
-        }
+    margin-bottom:4px;
+}
 
-        .identidade-card {
+.mapa-ponto small{
+    font-size:10px;
 
-            min-height: 470px;
+    font-weight:700;
+}
 
-            position: relative;
 
-            overflow: hidden;
+/* POSIÇÕES */
 
-            border-radius: 35px;
+.p1{left:8%;top:18%;}
+.p2{left:28%;top:12%;}
+.p3{left:50%;top:18%;}
+.p4{left:72%;top:12%;}
 
-            background:
+.p5{left:15%;top:42%;}
+.p6{left:40%;top:42%;}
+.p7{left:65%;top:40%;}
 
-                radial-gradient(
-                    circle at 80% 20%,
-                    rgba(185,155,93,0.25),
-                    transparent 28%
-                ),
+.p8{left:12%;bottom:12%;}
+.p9{left:38%;bottom:10%;}
+.p10{left:63%;bottom:12%;}
+.p11{right:7%;bottom:10%;}
 
-                linear-gradient(
-                    145deg,
-                    #294a35,
-                    #162a20
-                );
 
-            padding: 45px;
+/* =========================================================
+   JANELA DOS AMBIENTES
+========================================================= */
 
-            display: flex;
+.modal{
+    position:fixed;
 
-            flex-direction: column;
+    inset:0;
 
-            justify-content: space-between;
+    background:rgba(17,29,21,.78);
 
-            box-shadow: 0 30px 70px rgba(23,41,31,0.20);
-        }
+    backdrop-filter:blur(12px);
 
-        .identidade-card::before {
+    display:none;
 
-            content: "✦";
+    align-items:center;
 
-            position: absolute;
+    justify-content:center;
 
-            right: 35px;
-            top: 25px;
+    padding:20px;
 
-            font-size: 80px;
+    z-index:9000;
+}
 
-            color: rgba(255,255,255,0.06);
-        }
+.modal.active{
+    display:flex;
+}
 
-        .identidade-icon {
+.modal-box{
+    background:#f8faf7;
 
-            width: 65px;
-            height: 65px;
+    width:min(650px,100%);
 
-            display: grid;
-            place-items: center;
+    max-height:90vh;
 
-            border-radius: 20px;
+    overflow:auto;
 
-            background: rgba(255,255,255,0.08);
+    border-radius:30px;
 
-            border: 1px solid rgba(255,255,255,0.12);
+    padding:45px;
 
-            font-size: 27px;
+    position:relative;
 
-            color: var(--dourado-claro);
-        }
+    animation:modalEntrada .35s ease;
 
-        .identidade-card h3 {
+    box-shadow:0 30px 80px rgba(0,0,0,.25);
+}
 
-            color: white;
+@keyframes modalEntrada{
+    from{
+        opacity:0;
+        transform:translateY(30px) scale(.96);
+    }
 
-            font-family: Georgia, serif;
+    to{
+        opacity:1;
+        transform:translateY(0) scale(1);
+    }
+}
 
-            font-size: 32px;
+.close{
+    position:absolute;
 
-            font-weight: 400;
+    top:18px;
+    right:18px;
 
-            margin-bottom: 15px;
-        }
+    width:42px;
+    height:42px;
 
-        .identidade-card p {
+    border:none;
 
-            color: rgba(255,255,255,0.68);
+    border-radius:50%;
 
-            font-size: 14px;
-        }
+    background:var(--verde-claro);
 
-        .identidade-bottom {
+    color:var(--verde);
 
-            display: flex;
+    font-size:22px;
 
-            gap: 10px;
+    cursor:pointer;
+}
 
-            flex-wrap: wrap;
-        }
+.modal-emoji{
+    width:75px;
+    height:75px;
 
-        .tag {
+    display:flex;
+    align-items:center;
+    justify-content:center;
 
-            padding: 8px 13px;
+    border-radius:22px;
 
-            border-radius: 30px;
+    background:var(--verde-claro);
 
-            border: 1px solid rgba(255,255,255,0.12);
+    font-size:34px;
 
-            color: rgba(255,255,255,0.7);
+    margin-bottom:22px;
+}
 
-            font-size: 11px;
-        }
+.modal-number{
+    color:var(--dourado);
 
+    font-size:12px;
 
-        /* =========================================================
-           VALORES
-        ========================================================= */
+    font-weight:700;
 
-        .valores {
+    letter-spacing:3px;
+}
 
-            background: white;
-        }
+.modal-box h2{
+    font-family:Georgia,serif;
 
-        .valores-grid {
+    font-size:38px;
 
-            display: grid;
+    font-weight:500;
 
-            grid-template-columns: repeat(4, 1fr);
+    color:var(--verde);
 
-            gap: 17px;
-        }
+    margin:5px 0 18px;
+}
 
-        .valor-card {
+.modal-box p{
+    color:#667169;
 
-            position: relative;
+    font-size:15px;
 
-            padding: 30px 24px;
+    line-height:1.8;
+}
 
-            border: 1px solid #e5ebe6;
+.fact{
+    margin-top:25px;
 
-            border-radius: 22px;
+    padding:22px;
 
-            transition: 0.35s;
+    background:white;
 
-            overflow: hidden;
-        }
+    border-radius:18px;
 
-        .valor-card::after {
+    border-left:4px solid var(--dourado);
+}
 
-            content: "";
+.fact strong{
+    display:block;
 
-            position: absolute;
+    color:var(--verde);
 
-            width: 80px;
-            height: 80px;
+    margin-bottom:5px;
+}
 
-            border-radius: 50%;
+.modal-button{
+    margin-top:25px;
 
-            right: -30px;
-            bottom: -30px;
+    border:none;
 
-            background: var(--verde-suave);
+    background:var(--verde);
 
-            transition: 0.3s;
-        }
+    color:white;
 
-        .valor-card:hover {
+    padding:12px 22px;
 
-            transform: translateY(-8px);
+    border-radius:30px;
 
-            border-color: var(--dourado-claro);
+    cursor:pointer;
+}
 
-            box-shadow: var(--sombra);
-        }
 
-        .valor-card:hover::after {
-            transform: scale(2);
-        }
+/* =========================================================
+   PROTAGONISMO
+========================================================= */
 
-        .valor-icon {
+.protagonismo{
+    background:#eef2ed;
 
-            width: 48px;
-            height: 48px;
+    padding:110px 25px;
+}
 
-            border-radius: 14px;
+.protagonismo-inner{
+    max-width:1050px;
+    margin:auto;
+}
 
-            background: var(--verde-suave);
+.protagonismo-grid{
+    display:grid;
 
-            display: grid;
-            place-items: center;
+    grid-template-columns:repeat(4,1fr);
 
-            margin-bottom: 22px;
+    gap:15px;
 
-            color: var(--verde);
+    margin-top:45px;
+}
 
-            font-size: 20px;
+.pro-card{
+    background:white;
 
-            position: relative;
+    padding:30px;
 
-            z-index: 2;
-        }
+    border-radius:24px;
 
-        .valor-card h3 {
+    text-align:center;
 
-            font-family: Georgia, serif;
+    transition:.3s;
 
-            font-size: 20px;
+    border:1px solid rgba(36,69,50,.07);
+}
 
-            color: var(--verde-escuro);
+.pro-card:hover{
+    transform:translateY(-8px) rotate(1deg);
 
-            margin-bottom: 8px;
+    box-shadow:0 18px 40px rgba(36,69,50,.1);
+}
 
-            position: relative;
+.pro-card .big{
+    font-size:35px;
 
-            z-index: 2;
-        }
+    margin-bottom:15px;
+}
 
-        .valor-card p {
+.pro-card h3{
+    font-family:Georgia,serif;
 
-            font-size: 13px;
+    color:var(--verde);
 
-            color: var(--texto-claro);
+    margin-bottom:7px;
+}
 
-            position: relative;
+.pro-card p{
+    color:var(--cinza);
 
-            z-index: 2;
-        }
+    font-size:13px;
+}
 
 
-        /* =========================================================
-           ROTINA
-        ========================================================= */
+/* =========================================================
+   CURIOSIDADE
+========================================================= */
 
-        .rotina {
+.curiosidade{
+    max-width:900px;
 
-            background:
+    margin:110px auto;
 
-                linear-gradient(
-                    180deg,
-                    #eaf1eb,
-                    #f7f9f6
-                );
-        }
+    padding:0 25px;
 
-        .timeline {
+    text-align:center;
+}
 
-            position: relative;
+.curiosidade-box{
+    background:var(--verde);
 
-            max-width: 900px;
+    color:white;
 
-            margin: auto;
+    border-radius:35px;
 
-            padding-top: 15px;
-        }
+    padding:60px 30px;
 
-        .timeline::before {
+    position:relative;
 
-            content: "";
+    overflow:hidden;
+}
 
-            position: absolute;
+.curiosidade-box::before{
+    content:"?";
 
-            top: 0;
-            bottom: 0;
+    position:absolute;
 
-            left: 50%;
+    font-size:300px;
 
-            width: 2px;
+    font-weight:bold;
 
-            background: linear-gradient(
-                var(--dourado),
-                var(--verde-medio),
-                var(--dourado)
-            );
+    color:rgba(255,255,255,.03);
 
-            transform: translateX(-50%);
-        }
+    right:-40px;
 
-        .timeline-item {
+    top:-120px;
+}
 
-            position: relative;
+.curiosidade-box .small{
+    color:var(--dourado2);
 
-            width: 50%;
+    font-size:12px;
 
-            padding: 20px 45px;
-        }
+    letter-spacing:3px;
 
-        .timeline-item:nth-child(odd) {
-            left: 0;
-            text-align: right;
-        }
+    text-transform:uppercase;
+}
 
-        .timeline-item:nth-child(even) {
-            left: 50%;
-        }
+.curiosidade-box h2{
+    font-family:Georgia,serif;
 
-        .timeline-dot {
+    font-size:clamp(28px,5vw,42px);
 
-            position: absolute;
+    font-weight:500;
 
-            top: 28px;
+    margin:20px auto;
 
-            width: 15px;
-            height: 15px;
+    max-width:700px;
+}
 
-            border-radius: 50%;
+.curiosidade-box p{
+    color:rgba(255,255,255,.62);
 
-            background: var(--dourado);
+    max-width:600px;
 
-            border: 4px solid #eaf1eb;
+    margin:auto;
+}
 
-            box-shadow: 0 0 0 3px rgba(185,155,93,0.15);
-        }
+#novaCuriosidade{
+    margin-top:25px;
 
-        .timeline-item:nth-child(odd) .timeline-dot {
-            right: -8px;
-        }
+    border:1px solid rgba(255,255,255,.2);
 
-        .timeline-item:nth-child(even) .timeline-dot {
-            left: -8px;
-        }
+    background:transparent;
 
-        .timeline-card {
+    color:white;
 
-            background: white;
+    padding:11px 20px;
 
-            padding: 24px;
+    border-radius:30px;
 
-            border-radius: 20px;
+    cursor:pointer;
 
-            box-shadow: 0 10px 30px rgba(36,56,43,0.07);
+    transition:.2s;
+}
 
-            transition: 0.3s;
-        }
+#novaCuriosidade:hover{
+    background:white;
 
-        .timeline-card:hover {
+    color:var(--verde);
+}
 
-            transform: scale(1.025);
 
-            box-shadow: var(--sombra);
-        }
+/* =========================================================
+   FINAL
+========================================================= */
 
-        .timeline-time {
+.final{
+    padding:120px 25px;
 
-            display: inline-block;
+    text-align:center;
 
-            color: var(--dourado);
+    background:#f7f8f4;
+}
 
-            font-size: 13px;
+.final-symbol{
+    color:var(--dourado);
 
-            font-weight: 700;
+    font-size:45px;
+}
 
-            letter-spacing: 1px;
+.final h2{
+    font-family:Georgia,serif;
 
-            margin-bottom: 5px;
-        }
+    color:var(--verde);
 
-        .timeline-card h3 {
+    font-size:clamp(30px,5vw,48px);
 
-            color: var(--verde-escuro);
+    max-width:800px;
 
-            font-family: Georgia, serif;
+    margin:20px auto;
+}
 
-            font-size: 21px;
+.final p{
+    color:var(--cinza);
+}
 
-            margin-bottom: 4px;
-        }
 
-        .timeline-card p {
+/* =========================================================
+   FOOTER
+========================================================= */
 
-            color: var(--texto-claro);
+footer{
+    background:#17291f;
 
-            font-size: 13px;
-        }
+    color:white;
 
+    text-align:center;
 
-        /* =========================================================
-           DIAS DO INTEGRAL
-        ========================================================= */
+    padding:50px 20px;
+}
 
-        .dias-integral {
+footer h3{
+    font-family:Georgia,serif;
 
-            margin-top: 60px;
+    font-weight:500;
 
-            display: grid;
+    font-size:20px;
+}
 
-            grid-template-columns: 1fr 1fr;
+footer p{
+    color:rgba(255,255,255,.5);
 
-            gap: 20px;
-        }
+    font-size:13px;
 
-        .dia-card {
+    margin-top:7px;
+}
 
-            background: white;
 
-            padding: 30px;
+/* =========================================================
+   TOPO
+========================================================= */
 
-            border-radius: 22px;
+.top{
+    position:fixed;
 
-            border: 1px solid rgba(53,89,67,0.08);
+    bottom:22px;
 
-            box-shadow: 0 10px 30px rgba(36,56,43,0.05);
-        }
+    right:22px;
 
-        .dia-card .dia {
+    width:45px;
+    height:45px;
 
-            color: var(--dourado);
+    border:none;
 
-            text-transform: uppercase;
+    border-radius:50%;
 
-            letter-spacing: 2px;
+    background:var(--verde);
 
-            font-size: 11px;
+    color:white;
 
-            font-weight: 700;
-        }
+    cursor:pointer;
 
-        .dia-card h3 {
+    opacity:0;
 
-            font-family: Georgia, serif;
+    visibility:hidden;
 
-            color: var(--verde-escuro);
+    transition:.3s;
 
-            font-size: 24px;
+    z-index:4000;
+}
 
-            margin: 8px 0;
-        }
+.top.show{
+    opacity:1;
 
-        .dia-card p {
+    visibility:visible;
+}
 
-            color: var(--texto-claro);
 
-            font-size: 14px;
-        }
+/* =========================================================
+   RESPONSIVO
+========================================================= */
 
+@media(max-width:850px){
 
-        /* =========================================================
-           EXPLORE A ESCOLA
-        ========================================================= */
+    .nav-links{
+        display:none;
+    }
 
-        .explore {
+    .numeros{
+        grid-template-columns:1fr;
+    }
 
-            background: var(--verde-escuro);
+    .protagonismo-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
 
-            color: white;
+    .mapa{
+        min-height:700px;
+    }
 
-            position: relative;
+}
 
-            overflow: hidden;
-        }
+@media(max-width:650px){
 
-        .explore::before {
+    .hero{
+        padding-top:120px;
+    }
 
-            content: "";
+    .hero h1{
+        font-size:48px;
+    }
 
-            position: absolute;
+    .hero p{
+        font-size:16px;
+    }
 
-            width: 500px;
-            height: 500px;
+    .sobre-box{
+        padding:28px;
+    }
 
-            border: 1px solid rgba(255,255,255,0.06);
+    .timeline-item{
+        gap:15px;
+    }
 
-            border-radius: 50%;
+    .timeline-dot{
+        width:48px;
+        height:48px;
+        font-size:12px;
+    }
 
-            right: -200px;
-            top: -200px;
-        }
+    .timeline::before{
+        left:23px;
+    }
 
-        .explore .section-heading h2 {
-            color: white;
-        }
+    .dias{
+        grid-template-columns:1fr;
+    }
 
-        .explore .section-heading p {
-            color: rgba(255,255,255,0.60);
-        }
+    .mapa-intro{
+        display:block;
+    }
 
-        .ambientes {
+    .mapa{
+        min-height:850px;
+    }
 
-            display: grid;
+    .mapa-ponto{
+        width:75px;
+        height:75px;
+    }
 
-            grid-template-columns: repeat(3, 1fr);
+    .p1{left:5%;top:15%;}
+    .p2{left:40%;top:10%;}
+    .p3{right:5%;left:auto;top:17%;}
+    .p4{left:18%;top:31%;}
+    .p5{left:60%;top:32%;}
+    .p6{left:7%;top:48%;}
+    .p7{right:8%;left:auto;top:48%;}
+    .p8{left:20%;bottom:25%;}
+    .p9{right:20%;left:auto;bottom:25%;}
+    .p10{left:8%;bottom:8%;}
+    .p11{right:8%;bottom:8%;}
 
-            gap: 15px;
+    .protagonismo-grid{
+        grid-template-columns:1fr;
+    }
 
-            position: relative;
+    .modal-box{
+        padding:30px 22px;
+    }
 
-            z-index: 2;
-        }
+}
 
-        .ambiente {
-
-            min-height: 190px;
-
-            position: relative;
-
-            padding: 27px;
-
-            border-radius: 22px;
-
-            background: rgba(255,255,255,0.055);
-
-            border: 1px solid rgba(255,255,255,0.08);
-
-            cursor: pointer;
-
-            overflow: hidden;
-
-            transition: 0.35s;
-        }
-
-        .ambiente:hover {
-
-            transform: translateY(-7px);
-
-            background: rgba(255,255,255,0.10);
-
-            border-color: rgba(221,201,149,0.45);
-        }
-
-        .ambiente-numero {
-
-            color: var(--dourado-claro);
-
-            font-size: 11px;
-
-            letter-spacing: 2px;
-
-            font-weight: 700;
-        }
-
-        .ambiente h3 {
-
-            color: white;
-
-            font-family: Georgia, serif;
-
-            font-size: 22px;
-
-            font-weight: 400;
-
-            margin: 25px 0 7px;
-        }
-
-        .ambiente p {
-
-            color: rgba(255,255,255,0.55);
-
-            font-size: 12px;
-
-            max-width: 250px;
-        }
-
-        .ambiente-arrow {
-
-            position: absolute;
-
-            right: 22px;
-            bottom: 20px;
-
-            width: 32px;
-            height: 32px;
-
-            display: grid;
-            place-items: center;
-
-            border-radius: 50%;
-
-            border: 1px solid rgba(255,255,255,0.12);
-
-            color: var(--dourado-claro);
-
-            transition: 0.3s;
-        }
-
-        .ambiente:hover .ambiente-arrow {
-            transform: translateX(5px);
-        }
-
-
-        /* =========================================================
-           MODAL DOS AMBIENTES
-        ========================================================= */
-
-        .modal {
-
-            position: fixed;
-
-            inset: 0;
-
-            z-index: 9000;
-
-            display: none;
-
-            align-items: center;
-            justify-content: center;
-
-            padding: 20px;
-
-            background: rgba(10,22,15,0.78);
-
-            backdrop-filter: blur(12px);
-        }
-
-        .modal.active {
-            display: flex;
-        }
-
-        .modal-box {
-
-            width: 100%;
-
-            max-width: 650px;
-
-            max-height: 90vh;
-
-            overflow-y: auto;
-
-            background: #f9faf8;
-
-            border-radius: 28px;
-
-            padding: 40px;
-
-            position: relative;
-
-            animation: modalEntrada 0.35s ease;
-
-            box-shadow: 0 30px 90px rgba(0,0,0,0.3);
-        }
-
-        .modal-close {
-
-            position: absolute;
-
-            top: 20px;
-            right: 20px;
-
-            width: 38px;
-            height: 38px;
-
-            border: none;
-
-            border-radius: 50%;
-
-            background: var(--verde-claro);
-
-            color: var(--verde-escuro);
-
-            cursor: pointer;
-
-            font-size: 22px;
-
-            transition: 0.2s;
-        }
-
-        .modal-close:hover {
-
-            background: var(--verde);
-
-            color: white;
-        }
-
-        .modal-number {
-
-            color: var(--dourado);
-
-            font-size: 11px;
-
-            font-weight: 700;
-
-            letter-spacing: 2px;
-
-            text-transform: uppercase;
-        }
-
-        .modal-box h2 {
-
-            font-family: Georgia, serif;
-
-            font-size: 34px;
-
-            color: var(--verde-escuro);
-
-            font-weight: 400;
-
-            margin: 5px 0 18px;
-        }
-
-        .modal-box p {
-
-            color: var(--texto-claro);
-
-            font-size: 15px;
-
-            margin-bottom: 20px;
-        }
-
-        .modal-info {
-
-            padding: 20px;
-
-            background: var(--verde-suave);
-
-            border-radius: 18px;
-
-            color: var(--verde);
-
-            font-size: 14px;
-        }
-
-
-        /* =========================================================
-           APRENDIZAGEM
-        ========================================================= */
-
-        .aprendizagem {
-
-            background: white;
-        }
-
-        .aprendizagem-grid {
-
-            display: grid;
-
-            grid-template-columns: 1fr 1fr;
-
-            gap: 20px;
-        }
-
-        .area {
-
-            display: flex;
-
-            gap: 20px;
-
-            align-items: flex-start;
-
-            padding: 30px;
-
-            border-radius: 23px;
-
-            background: var(--creme);
-
-            border: 1px solid #e9eee9;
-
-            transition: 0.3s;
-        }
-
-        .area:hover {
-
-            transform: translateX(5px);
-
-            box-shadow: 0 12px 35px rgba(36,56,43,0.07);
-        }
-
-        .area-icon {
-
-            min-width: 52px;
-            height: 52px;
-
-            border-radius: 16px;
-
-            background: var(--verde);
-
-            color: white;
-
-            display: grid;
-            place-items: center;
-
-            font-size: 20px;
-        }
-
-        .area h3 {
-
-            font-family: Georgia, serif;
-
-            color: var(--verde-escuro);
-
-            font-size: 21px;
-
-            margin-bottom: 5px;
-        }
-
-        .area p {
-
-            color: var(--texto-claro);
-
-            font-size: 13px;
-        }
-
-
-        /* =========================================================
-           PROTAGONISMO
-        ========================================================= */
-
-        .protagonismo {
-
-            background:
-
-                linear-gradient(
-                    135deg,
-                    #f2f6f2,
-                    #e6eee8
-                );
-        }
-
-        .protagonismo-content {
-
-            display: grid;
-
-            grid-template-columns: 0.8fr 1.2fr;
-
-            gap: 70px;
-
-            align-items: center;
-        }
-
-        .big-word {
-
-            font-family: Georgia, serif;
-
-            font-size: clamp(70px, 10vw, 130px);
-
-            line-height: 0.85;
-
-            color: var(--verde-escuro);
-
-            opacity: 0.09;
-
-            user-select: none;
-        }
-
-        .protagonismo-text h2 {
-
-            font-family: Georgia, serif;
-
-            font-size: clamp(35px, 5vw, 52px);
-
-            font-weight: 400;
-
-            line-height: 1.1;
-
-            color: var(--verde-escuro);
-
-            margin-bottom: 20px;
-        }
-
-        .protagonismo-text p {
-
-            color: var(--texto-claro);
-
-            margin-bottom: 15px;
-
-            font-size: 15px;
-        }
-
-        .protagonismo-list {
-
-            display: grid;
-
-            grid-template-columns: 1fr 1fr;
-
-            gap: 10px;
-
-            margin-top: 25px;
-        }
-
-        .protagonismo-list div {
-
-            padding: 13px;
-
-            background: white;
-
-            border-radius: 13px;
-
-            font-size: 12px;
-
-            color: var(--verde);
-
-            border: 1px solid #e3eae4;
-        }
-
-
-        /* =========================================================
-           FRASE FINAL
-        ========================================================= */
-
-        .final {
-
-            padding: 130px 7%;
-
-            text-align: center;
-
-            color: white;
-
-            background:
-
-                radial-gradient(
-                    circle at center,
-                    rgba(185,155,93,0.12),
-                    transparent 35%
-                ),
-
-                var(--verde-escuro);
-        }
-
-        .final .eyebrow {
-            color: var(--dourado-claro);
-        }
-
-        .final h2 {
-
-            max-width: 850px;
-
-            margin: auto;
-
-            font-family: Georgia, serif;
-
-            font-weight: 400;
-
-            font-size: clamp(35px, 5vw, 58px);
-
-            line-height: 1.15;
-        }
-
-        .final p {
-
-            max-width: 650px;
-
-            margin: 25px auto 0;
-
-            color: rgba(255,255,255,0.60);
-
-            font-size: 15px;
-        }
-
-
-        /* =========================================================
-           FOOTER
-        ========================================================= */
-
-        footer {
-
-            background: #101e17;
-
-            color: white;
-
-            padding: 45px 7%;
-        }
-
-        .footer-content {
-
-            max-width: 1150px;
-
-            margin: auto;
-
-            display: flex;
-
-            justify-content: space-between;
-
-            align-items: center;
-
-            gap: 30px;
-        }
-
-        .footer-title {
-
-            font-family: Georgia, serif;
-
-            font-size: 18px;
-
-            margin-bottom: 5px;
-        }
-
-        .footer-subtitle {
-
-            color: rgba(255,255,255,0.45);
-
-            font-size: 12px;
-        }
-
-        .footer-right {
-
-            color: var(--dourado-claro);
-
-            font-size: 12px;
-
-            text-align: right;
-        }
-
-
-        /* =========================================================
-           BOTÃO VOLTAR AO TOPO
-        ========================================================= */
-
-        .top-button {
-
-            position: fixed;
-
-            right: 22px;
-            bottom: 22px;
-
-            width: 45px;
-            height: 45px;
-
-            display: grid;
-            place-items: center;
-
-            border: none;
-
-            border-radius: 50%;
-
-            background: var(--verde);
-
-            color: white;
-
-            cursor: pointer;
-
-            z-index: 3000;
-
-            opacity: 0;
-
-            transform: translateY(20px);
-
-            pointer-events: none;
-
-            transition: 0.3s;
-
-            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-        }
-
-        .top-button.show {
-
-            opacity: 1;
-
-            transform: translateY(0);
-
-            pointer-events: auto;
-        }
-
-
-        /* =========================================================
-           ANIMAÇÕES
-        ========================================================= */
-
-        @keyframes aparecer {
-
-            from {
-                opacity: 0;
-            }
-
-            to {
-                opacity: 1;
-            }
-        }
-
-        @keyframes subir {
-
-            from {
-                opacity: 0;
-                transform: translateY(25px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes modalEntrada {
-
-            from {
-                opacity: 0;
-                transform: translateY(25px) scale(0.97);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0) scale(1);
-            }
-        }
-
-
-        /* =========================================================
-           RESPONSIVIDADE
-        ========================================================= */
-
-        @media (max-width: 950px) {
-
-            .menu {
-                display: none;
-            }
-
-            .menu-mobile {
-                display: block;
-            }
-
-            .hero-info {
-                position: relative;
-
-                right: auto;
-                bottom: auto;
-
-                margin-top: 50px;
-
-                max-width: 500px;
-            }
-
-            .hero {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            .sobre-grid,
-            .protagonismo-content {
-                grid-template-columns: 1fr;
-            }
-
-            .valores-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .ambientes {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .aprendizagem-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .identidade-card {
-                min-height: 400px;
-            }
-        }
-
-        @media (max-width: 700px) {
-
-            section {
-                padding: 75px 5%;
-            }
-
-            .hero {
-                padding: 120px 6% 60px;
-            }
-
-            .hero h1 {
-                font-size: 48px;
-            }
-
-            .hero-description {
-                font-size: 16px;
-            }
-
-            .hero-info {
-                grid-template-columns: 1fr 1fr 1fr;
-                width: 100%;
-            }
-
-            .hero-info-card {
-                padding: 13px 7px;
-            }
-
-            .hero-info-card strong {
-                font-size: 18px;
-            }
-
-            .hero-info-card span {
-                font-size: 8px;
-            }
-
-            .valores-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .ambientes {
-                grid-template-columns: 1fr;
-            }
-
-            .dias-integral {
-                grid-template-columns: 1fr;
-            }
-
-            .timeline::before {
-                left: 10px;
-            }
-
-            .timeline-item,
-            .timeline-item:nth-child(even),
-            .timeline-item:nth-child(odd) {
-
-                width: 100%;
-
-                left: 0;
-
-                text-align: left;
-
-                padding: 15px 0 15px 38px;
-            }
-
-            .timeline-item:nth-child(odd) .timeline-dot,
-            .timeline-item:nth-child(even) .timeline-dot {
-
-                left: 3px;
-                right: auto;
-            }
-
-            .protagonismo-list {
-                grid-template-columns: 1fr;
-            }
-
-            .modal-box {
-                padding: 30px 22px;
-            }
-
-            .footer-content {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            .footer-right {
-                text-align: left;
-            }
-        }
-
-        @media (max-width: 450px) {
-
-            .hero h1 {
-                font-size: 40px;
-            }
-
-            .hero-info {
-                gap: 6px;
-            }
-
-            .hero-info-card {
-                border-radius: 12px;
-            }
-
-            .section-heading h2 {
-                font-size: 34px;
-            }
-
-            .identidade-card {
-                padding: 30px;
-            }
-
-            .timeline-card {
-                padding: 20px;
-            }
-        }
-
-    </style>
-
+</style>
 </head>
 
 
 <body>
 
 
-    <!-- =========================================================
-         NAVEGAÇÃO
-    ========================================================= -->
-
-    <nav class="navbar" id="navbar">
-
-        <a href="#inicio" class="logo">
-
-            <div class="logo-icon">
-                ✦
-            </div>
-
-            <span>
-                Castelo Branco
-            </span>
-
-        </a>
+<div class="cursor-dot" id="cursor"></div>
 
 
-        <ul class="menu">
+<!-- =========================================================
+     NAV
+========================================================= -->
 
-            <li>
-                <a href="#sobre">A escola</a>
-            </li>
+<nav>
 
-            <li>
-                <a href="#rotina">Nossa rotina</a>
-            </li>
+    <a href="#inicio" class="logo">
 
-            <li>
-                <a href="#espacos">Espaços</a>
-            </li>
+        <div class="logo-circle">
+            ✦
+        </div>
 
-            <li>
-                <a href="#aprendizagem">Aprendizagem</a>
-            </li>
+        Castelo Branco
 
-            <li>
-                <a href="#protagonismo">Protagonismo</a>
-            </li>
-
-        </ul>
+    </a>
 
 
-        <button class="menu-mobile" onclick="mostrarMenu()">
-            ☰
+    <div class="nav-links">
+
+        <a href="#sobre">Nossa escola</a>
+
+        <a href="#rotina">Rotina</a>
+
+        <a href="#mapa">Explorar</a>
+
+        <a href="#protagonismo">Estudantes</a>
+
+    </div>
+
+</nav>
+
+
+<!-- =========================================================
+     HERO
+========================================================= -->
+
+<header class="hero" id="inicio">
+
+
+    <div class="floating float1">
+        📚
+    </div>
+
+    <div class="floating float2">
+        🔬
+    </div>
+
+    <div class="floating float3">
+        🎨
+    </div>
+
+    <div class="floating float4">
+        💻
+    </div>
+
+
+    <div class="hero-content">
+
+        <div class="hero-small">
+            FEIRA ESCOLAR • 2026
+        </div>
+
+        <h1>
+            Conheça o
+            <span>Castelo Branco</span>
+        </h1>
+
+        <p>
+            Entre, explore e descubra um pouco da rotina,
+            dos espaços e das pessoas que fazem parte
+            da nossa escola.
+        </p>
+
+
+        <button
+            class="hero-button"
+            onclick="document.getElementById('sobre').scrollIntoView()">
+
+            COMEÇAR A EXPLORAR ↓
+
         </button>
 
-    </nav>
+    </div>
+
+</header>
 
 
+<!-- =========================================================
+     SOBRE
+========================================================= -->
 
-    <!-- =========================================================
-         HERO
-    ========================================================= -->
+<section class="intro" id="sobre">
 
-    <header class="hero" id="inicio">
 
-        <div class="hero-content">
+    <div class="section-label">
+        01 • NOSSA ESCOLA
+    </div>
 
-            <div class="mini-label">
-                Feira Escolar • 2026
+    <h2 class="section-title">
+        Muito mais que uma escola.
+    </h2>
+
+    <p class="section-subtitle">
+        Um lugar onde conhecimento, convivência,
+        criatividade e participação fazem parte
+        do dia a dia.
+    </p>
+
+
+    <div class="sobre-box">
+
+        <p>
+            O <strong>Colégio Estadual do Campo Castelo Branco</strong>
+            é uma escola de período integral que busca proporcionar
+            aos estudantes uma formação ampla, unindo os conhecimentos
+            das diferentes áreas do ensino ao desenvolvimento pessoal,
+            à convivência e à participação na comunidade escolar.
+        </p>
+
+        <p>
+            A rotina escolar acontece das
+            <strong>7h20 às 11h30</strong> no período da manhã e das
+            <strong>12h55 às 17h</strong> no período da tarde.
+            Durante esse período, os estudantes participam das aulas,
+            atividades e diferentes momentos de aprendizagem.
+        </p>
+
+        <p>
+            A escola também conta com momentos de recreio ao longo do dia.
+            Pela manhã, o recreio acontece das
+            <strong>9h às 9h15</strong> e, à tarde,
+            das <strong>15h15 às 15h30</strong>.
+        </p>
+
+        <p>
+            Por ser uma escola de período integral, os estudantes também
+            permanecem na instituição durante o horário do
+            <strong>almoço</strong>. Os alunos que estão na escola
+            naquele dia realizam a refeição juntos, fortalecendo
+            momentos de convivência e integração.
+        </p>
+
+        <p>
+            A organização do período integral acontece de acordo com
+            os dias da semana. Às <strong>segundas e quartas-feiras</strong>,
+            permanecem durante todo o dia os estudantes do
+            <strong>6º, 7º e 8º anos do Ensino Fundamental</strong>.
+        </p>
+
+        <p>
+            Já às <strong>terças e quintas-feiras</strong>, permanecem
+            em período integral os estudantes do
+            <strong>Ensino Médio e do 9º ano do Ensino Fundamental</strong>.
+        </p>
+
+        <p>
+            Outro aspecto importante é o
+            <strong>protagonismo dos estudantes</strong>.
+            A proposta busca incentivar a participação, a criatividade,
+            a responsabilidade e o envolvimento dos alunos na vida escolar.
+        </p>
+
+        <p>
+            Mais do que um espaço destinado às aulas, a escola é também
+            um ambiente de convivência, troca de experiências,
+            desenvolvimento de habilidades e construção de novas
+            possibilidades para o futuro.
+        </p>
+
+    </div>
+
+
+    <div class="numeros">
+
+        <div class="numero-card">
+
+            <div class="icon">
+                🕐
             </div>
 
-            <h1>
-                Um lugar para
-                <span>aprender,</span>
-                crescer e transformar.
-            </h1>
+            <h3>
+                Período Integral
+            </h3>
 
-            <p class="hero-description">
-
-                Seja bem-vindo ao espaço digital do
-                <strong>Colégio Estadual do Campo Castelo Branco</strong>.
-                Aqui, você poderá conhecer um pouco da nossa identidade,
-                nossos espaços, nossa rotina e as experiências que fazem
-                parte da nossa comunidade escolar.
-
+            <p>
+                Uma rotina que ocupa os períodos da manhã
+                e da tarde.
             </p>
 
-
-            <div class="hero-buttons">
-
-                <a href="#sobre" class="btn btn-primary">
-                    Conhecer a escola
-                    ↓
-                </a>
-
-                <a href="#espacos" class="btn btn-outline">
-                    Explorar os espaços
-                    →
-                </a>
-
-            </div>
-
         </div>
 
 
-        <div class="hero-info">
+        <div class="numero-card">
 
-            <div class="hero-info-card">
-
-                <strong>Integral</strong>
-
-                <span>
-                    Jornada escolar
-                </span>
-
+            <div class="icon">
+                🍽️
             </div>
 
-
-            <div class="hero-info-card">
-
-                <strong>8h</strong>
-
-                <span>
-                    De convivência
-                </span>
-
-            </div>
-
-
-            <div class="hero-info-card">
-
-                <strong>✦</strong>
-
-                <span>
-                    Protagonismo
-                </span>
-
-            </div>
-
-        </div>
-
-    </header>
-
-
-
-    <!-- =========================================================
-         SOBRE
-    ========================================================= -->
-
-    <section class="sobre" id="sobre">
-
-        <div class="section-container">
-
-            <div class="sobre-grid">
-
-
-                <div class="sobre-texto">
-
-                    <div class="section-heading">
-
-                        <div class="eyebrow">
-                            Nossa identidade
-                        </div>
-
-                        <h2>
-                            Muito mais que uma escola.
-                        </h2>
-
-                        <p>
-                            Um espaço de aprendizagem, convivência
-                            e construção de novas possibilidades.
-                        </p>
-
-                    </div>
-
-
-                    <p>
-
-                        O <strong>Colégio Estadual do Campo Castelo Branco</strong>
-                        é uma escola de período integral que busca proporcionar
-                        aos estudantes uma formação ampla, unindo os conhecimentos
-                        das diferentes áreas do ensino ao desenvolvimento pessoal,
-                        à convivência e à participação na comunidade escolar.
-
-                    </p>
-
-
-                    <p>
-
-                        A escola valoriza uma educação que vai além dos conteúdos
-                        trabalhados em sala de aula. O cotidiano escolar também
-                        representa uma oportunidade para desenvolver habilidades,
-                        descobrir interesses, compartilhar experiências e
-                        construir relações.
-
-                    </p>
-
-
-                    <p>
-
-                        Como parte da comunidade, a escola representa um espaço
-                        de encontro entre estudantes, professores, funcionários
-                        e famílias, fortalecendo vínculos e criando experiências
-                        que fazem parte da formação de cada aluno.
-
-                    </p>
-
-
-                    <p>
-
-                        O ambiente escolar também busca estimular a autonomia,
-                        a criatividade e a responsabilidade, incentivando os
-                        estudantes a participarem ativamente da construção
-                        da própria trajetória.
-
-                    </p>
-
-
-                    <div class="frase-destaque">
-
-                        “Aprender também é descobrir quem somos
-                        e perceber tudo aquilo que podemos construir.”
-
-                    </div>
-
-                </div>
-
-
-
-                <div class="identidade-card">
-
-                    <div>
-
-                        <div class="identidade-icon">
-                            🌱
-                        </div>
-
-                    </div>
-
-
-                    <div>
-
-                        <h3>
-                            Educação que cria raízes.
-                        </h3>
-
-                        <p>
-
-                            Em uma escola do campo, aprender também significa
-                            valorizar o lugar onde vivemos, as pessoas que fazem
-                            parte dele e as experiências que ajudam a construir
-                            nossa identidade.
-
-                        </p>
-
-                    </div>
-
-
-                    <div class="identidade-bottom">
-
-                        <span class="tag">
-                            Comunidade
-                        </span>
-
-                        <span class="tag">
-                            Aprendizagem
-                        </span>
-
-                        <span class="tag">
-                            Convivência
-                        </span>
-
-                        <span class="tag">
-                            Futuro
-                        </span>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-
-    <!-- =========================================================
-         VALORES
-    ========================================================= -->
-
-    <section class="valores">
-
-        <div class="section-container">
-
-            <div class="section-heading center">
-
-                <div class="eyebrow">
-                    O que cultivamos
-                </div>
-
-                <h2>
-                    Valores que fazem parte da nossa escola.
-                </h2>
-
-                <p>
-                    Pequenas atitudes também fazem parte da aprendizagem.
-                </p>
-
-            </div>
-
-
-            <div class="valores-grid">
-
-
-                <div class="valor-card">
-
-                    <div class="valor-icon">
-                        💡
-                    </div>
-
-                    <h3>
-                        Criatividade
-                    </h3>
-
-                    <p>
-                        Incentivar novas ideias, descobertas e diferentes
-                        maneiras de enxergar o mundo.
-                    </p>
-
-                </div>
-
-
-                <div class="valor-card">
-
-                    <div class="valor-icon">
-                        🤝
-                    </div>
-
-                    <h3>
-                        Convivência
-                    </h3>
-
-                    <p>
-                        Construir relações baseadas no respeito,
-                        diálogo e colaboração.
-                    </p>
-
-                </div>
-
-
-                <div class="valor-card">
-
-                    <div class="valor-icon">
-                        🌱
-                    </div>
-
-                    <h3>
-                        Responsabilidade
-                    </h3>
-
-                    <p>
-                        Desenvolver autonomia e consciência sobre nossas
-                        escolhas e atitudes.
-                    </p>
-
-                </div>
-
-
-                <div class="valor-card">
-
-                    <div class="valor-icon">
-                        ⭐
-                    </div>
-
-                    <h3>
-                        Protagonismo
-                    </h3>
-
-                    <p>
-                        Incentivar o estudante a participar e assumir
-                        um papel ativo na vida escolar.
-                    </p>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-
-    <!-- =========================================================
-         ROTINA
-    ========================================================= -->
-
-    <section class="rotina" id="rotina">
-
-        <div class="section-container">
-
-            <div class="section-heading center">
-
-                <div class="eyebrow">
-                    Acompanhe nossa rotina
-                </div>
-
-                <h2>
-                    Um dia na nossa escola.
-                </h2>
-
-                <p>
-                    Nossa rotina é organizada para equilibrar aprendizagem,
-                    convivência e momentos de descanso.
-                </p>
-
-            </div>
-
-
-            <div class="timeline">
-
-
-                <!-- 01 -->
-
-                <div class="timeline-item">
-
-                    <div class="timeline-dot"></div>
-
-                    <div class="timeline-card">
-
-                        <span class="timeline-time">
-                            07h20
-                        </span>
-
-                        <h3>
-                            Começo do dia
-                        </h3>
-
-                        <p>
-                            Início das atividades escolares
-                            no período da manhã.
-                        </p>
-
-                    </div>
-
-                </div>
-
-
-                <!-- 02 -->
-
-                <div class="timeline-item">
-
-                    <div class="timeline-dot"></div>
-
-                    <div class="timeline-card">
-
-                        <span class="timeline-time">
-                            09h00 — 09h15
-                        </span>
-
-                        <h3>
-                            Recreio
-                        </h3>
-
-                        <p>
-                            Um momento para descansar, conversar
-                            e conviver com os colegas.
-                        </p>
-
-                    </div>
-
-                </div>
-
-
-                <!-- 03 -->
-
-                <div class="timeline-item">
-
-                    <div class="timeline-dot"></div>
-
-                    <div class="timeline-card">
-
-                        <span class="timeline-time">
-                            11h30
-                        </span>
-
-                        <h3>
-                            Final da manhã
-                        </h3>
-
-                        <p>
-                            Encerramento das atividades do período
-                            da manhã.
-                        </p>
-
-                    </div>
-
-                </div>
-
-
-                <!-- 04 -->
-
-                <div class="timeline-item">
-
-                    <div class="timeline-dot"></div>
-
-                    <div class="timeline-card">
-
-                        <span class="timeline-time">
-                            12h55
-                        </span>
-
-                        <h3>
-                            Retorno
-                        </h3>
-
-                        <p>
-                            Retomada das atividades escolares
-                            no período da tarde.
-                        </p>
-
-                    </div>
-
-                </div>
-
-
-                <!-- 05 -->
-
-                <div class="timeline-item">
-
-                    <div class="timeline-dot"></div>
-
-                    <div class="timeline-card">
-
-                        <span class="timeline-time">
-                            15h15 — 15h30
-                        </span>
-
-                        <h3>
-                            Recreio da tarde
-                        </h3>
-
-                        <p>
-                            Pausa para descanso, interação
-                            e convivência.
-                        </p>
-
-                    </div>
-
-                </div>
-
-
-                <!-- 06 -->
-
-                <div class="timeline-item">
-
-                    <div class="timeline-dot"></div>
-
-                    <div class="timeline-card">
-
-                        <span class="timeline-time">
-                            17h00
-                        </span>
-
-                        <h3>
-                            Final do dia
-                        </h3>
-
-                        <p>
-                            Encerramento das atividades escolares
-                            do período da tarde.
-                        </p>
-
-                    </div>
-
-                </div>
-
-
-            </div>
-
-
-
-            <!-- DIAS -->
-
-            <div class="dias-integral">
-
-
-                <div class="dia-card">
-
-                    <span class="dia">
-                        Segundas e quartas
-                    </span>
-
-                    <h3>
-                        Ensino Fundamental
-                    </h3>
-
-                    <p>
-                        Permanecem em período integral os estudantes
-                        do 6º, 7º e 8º anos do Ensino Fundamental.
-                    </p>
-
-                </div>
-
-
-                <div class="dia-card">
-
-                    <span class="dia">
-                        Terças e quintas
-                    </span>
-
-                    <h3>
-                        Ensino Médio e 9º ano
-                    </h3>
-
-                    <p>
-                        Permanecem em período integral os estudantes
-                        do Ensino Médio e do 9º ano do Ensino Fundamental.
-                    </p>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-
-    <!-- =========================================================
-         ESPAÇOS
-    ========================================================= -->
-
-    <section class="explore" id="espacos">
-
-        <div class="section-container">
-
-            <div class="section-heading">
-
-                <div class="eyebrow">
-                    Explore a escola
-                </div>
-
-                <h2>
-                    Cada espaço conta uma parte da nossa história.
-                </h2>
-
-                <p>
-                    Clique nos ambientes abaixo para descobrir
-                    um pouco mais sobre cada espaço da escola.
-                </p>
-
-            </div>
-
-
-            <div class="ambientes">
-
-
-                <button class="ambiente" onclick="abrirAmbiente(1)">
-
-                    <span class="ambiente-numero">
-                        01
-                    </span>
-
-                    <h3>
-                        Entrada
-                    </h3>
-
-                    <p>
-                        O primeiro contato com a nossa escola.
-                    </p>
-
-                    <span class="ambiente-arrow">
-                        →
-                    </span>
-
-                </button>
-
-
-
-                <button class="ambiente" onclick="abrirAmbiente(2)">
-
-                    <span class="ambiente-numero">
-                        02
-                    </span>
-
-                    <h3>
-                        Diretoria
-                    </h3>
-
-                    <p>
-                        Espaço de organização e gestão escolar.
-                    </p>
-
-                    <span class="ambiente-arrow">
-                        →
-                    </span>
-
-                </button>
-
-
-
-                <button class="ambiente" onclick="abrirAmbiente(3)">
-
-                    <span class="ambiente-numero">
-                        03
-                    </span>
-
-                    <h3>
-                        Sala dos Professores
-                    </h3>
-
-                    <p>
-                        Espaço de planejamento e troca entre educadores.
-                    </p>
-
-                    <span class="ambiente-arrow">
-                        →
-                    </span>
-
-                </button>
-
-
-
-                <button class="ambiente" onclick="abrirAmbiente(4)">
-
-                    <span class="ambiente-numero">
-                        04
-                    </span>
-
-                    <h3>
-                        Biblioteca
-                    </h3>
-
-                    <p>
-                        Um espaço para leitura, pesquisa e descobertas.
-                    </p>
-
-                    <span class="ambiente-arrow">
-                        →
-                    </span>
-
-                </button>
-
-
-
-                <button class="ambiente" onclick="abrirAmbiente(5)">
-
-                    <span class="ambiente-numero">
-                        05
-                    </span>
-
-                    <h3>
-                        Sala de Exatas
-                    </h3>
-
-                    <p>
-                        Conhecimento, raciocínio e resolução de problemas.
-                    </p>
-
-                    <span class="ambiente-arrow">
-                        →
-                    </span>
-
-                </button>
-
-
-
-                <button class="ambiente" onclick="abrirAmbiente(6)">
-
-                    <span class="ambiente-numero">
-                        06
-                    </span>
-
-                    <h3>
-                        Sala de Linguagens
-                    </h3>
-
-                    <p>
-                        Comunicação, expressão e diferentes formas de linguagem.
-                    </p>
-
-                    <span class="ambiente-arrow">
-                        →
-                    </span>
-
-                </button>
-
-
-
-                <button class="ambiente" onclick="abrirAmbiente(7)">
-
-                    <span class="ambiente-numero">
-                        07
-                    </span>
-
-                    <h3>
-                        Ciências Humanas
-                    </h3>
-
-                    <p>
-                        Sociedade, história, cultura e pensamento.
-                    </p>
-
-                    <span class="ambiente-arrow">
-                        →
-                    </span>
-
-                </button>
-
-
-
-                <button class="ambiente" onclick="abrirAmbiente(8)">
-
-                    <span class="ambiente-numero">
-                        08
-                    </span>
-
-                    <h3>
-                        Sala de Artes
-                    </h3>
-
-                    <p>
-                        Criatividade, expressão e imaginação.
-                    </p>
-
-                    <span class="ambiente-arrow">
-                        →
-                    </span>
-
-                </button>
-
-
-
-                <button class="ambiente" onclick="abrirAmbiente(9)">
-
-                    <span class="ambiente-numero">
-                        09
-                    </span>
-
-                    <h3>
-                        Laboratório de Ciências
-                    </h3>
-
-                    <p>
-                        Experimentação, investigação e descobertas.
-                    </p>
-
-                    <span class="ambiente-arrow">
-                        →
-                    </span>
-
-                </button>
-
-
-
-                <button class="ambiente" onclick="abrirAmbiente(10)">
-
-                    <span class="ambiente-numero">
-                        10
-                    </span>
-
-                    <h3>
-                        Laboratório de Informática
-                    </h3>
-
-                    <p>
-                        Tecnologia, pesquisa e aprendizagem digital.
-                    </p>
-
-                    <span class="ambiente-arrow">
-                        →
-                    </span>
-
-                </button>
-
-
-
-                <button class="ambiente" onclick="abrirAmbiente(11)">
-
-                    <span class="ambiente-numero">
-                        11
-                    </span>
-
-                    <h3>
-                        Espaço de Tecnologia
-                    </h3>
-
-                    <p>
-                        Um ambiente voltado para novas possibilidades.
-                    </p>
-
-                    <span class="ambiente-arrow">
-                        →
-                    </span>
-
-                </button>
-
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-
-    <!-- =========================================================
-         MODAL
-    ========================================================= -->
-
-    <div class="modal" id="modal">
-
-        <div class="modal-box">
-
-            <button
-                class="modal-close"
-                onclick="fecharAmbiente()">
-                ×
-            </button>
-
-            <span
-                class="modal-number"
-                id="modalNumero">
-                01
-            </span>
-
-            <h2 id="modalTitulo">
-                Entrada
-            </h2>
-
-            <p id="modalTexto">
-                Conheça um pouco mais sobre este espaço.
+            <h3>
+                Convivência
+            </h3>
+
+            <p>
+                O almoço também faz parte da experiência
+                de estar na escola.
             </p>
 
-            <div class="modal-info" id="modalInfo">
-                Um dos ambientes que fazem parte do cotidiano
-                do Colégio Estadual do Campo Castelo Branco.
+        </div>
+
+
+        <div class="numero-card">
+
+            <div class="icon">
+                💡
+            </div>
+
+            <h3>
+                Protagonismo
+            </h3>
+
+            <p>
+                Os estudantes também fazem parte
+                da construção da vida escolar.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     ROTINA
+========================================================= -->
+
+<section class="rotina" id="rotina">
+
+    <div class="rotina-inner">
+
+        <div class="section-label">
+            02 • UM DIA NA ESCOLA
+        </div>
+
+        <h2 class="section-title">
+            Acompanhe nossa rotina.
+        </h2>
+
+        <p class="section-subtitle">
+            Do primeiro horário ao final da tarde,
+            cada momento tem seu espaço.
+        </p>
+
+
+        <div class="timeline">
+
+
+            <div class="timeline-item">
+
+                <div class="timeline-dot">
+                    07:20
+                </div>
+
+                <div class="timeline-card">
+
+                    <h3>
+                        Começo do dia
+                    </h3>
+
+                    <p>
+                        Início das atividades escolares
+                        do período da manhã.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="timeline-item">
+
+                <div class="timeline-dot">
+                    09:00
+                </div>
+
+                <div class="timeline-card">
+
+                    <h3>
+                        Recreio
+                    </h3>
+
+                    <p>
+                        Das 9h às 9h15 acontece o
+                        recreio da manhã.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="timeline-item">
+
+                <div class="timeline-dot">
+                    11:30
+                </div>
+
+                <div class="timeline-card">
+
+                    <h3>
+                        Final da manhã
+                    </h3>
+
+                    <p>
+                        Encerramento das atividades
+                        do período da manhã.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="timeline-item">
+
+                <div class="timeline-dot">
+                    12:55
+                </div>
+
+                <div class="timeline-card">
+
+                    <h3>
+                        Retorno
+                    </h3>
+
+                    <p>
+                        Início das atividades do
+                        período da tarde.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="timeline-item">
+
+                <div class="timeline-dot">
+                    15:15
+                </div>
+
+                <div class="timeline-card">
+
+                    <h3>
+                        Recreio da tarde
+                    </h3>
+
+                    <p>
+                        Das 15h15 às 15h30 acontece
+                        o segundo recreio do dia.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="timeline-item">
+
+                <div class="timeline-dot">
+                    17:00
+                </div>
+
+                <div class="timeline-card">
+
+                    <h3>
+                        Final do dia
+                    </h3>
+
+                    <p>
+                        Encerramento das atividades
+                        escolares.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+        <div class="dias">
+
+            <div class="dia">
+
+                <span>
+                    Segunda + Quarta
+                </span>
+
+                <h3>
+                    6º, 7º e 8º anos
+                </h3>
+
+                <p>
+                    Permanecem durante todo o dia
+                    os estudantes dessas séries.
+                </p>
+
+            </div>
+
+
+            <div class="dia">
+
+                <span>
+                    Terça + Quinta
+                </span>
+
+                <h3>
+                    9º ano + Ensino Médio
+                </h3>
+
+                <p>
+                    Permanecem durante todo o dia
+                    os estudantes dessas etapas.
+                </p>
+
             </div>
 
         </div>
 
     </div>
 
+</section>
 
 
-    <!-- =========================================================
-         APRENDIZAGEM
-    ========================================================= -->
+<!-- =========================================================
+     MAPA
+========================================================= -->
 
-    <section class="aprendizagem" id="aprendizagem">
+<section class="mapa-section" id="mapa">
 
-        <div class="section-container">
 
-            <div class="section-heading center">
+    <div class="mapa-intro">
 
-                <div class="eyebrow">
-                    Áreas de aprendizagem
+        <div>
+
+            <div class="section-label">
+                03 • EXPLORE
+            </div>
+
+            <h2 class="section-title">
+                Agora é sua vez.
+            </h2>
+
+            <p class="section-subtitle">
+                Clique nos pontos do mapa para conhecer
+                diferentes espaços da escola.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="mapa">
+
+
+        <div class="mapa-legenda">
+            ✦ Clique nos espaços
+        </div>
+
+
+        <button class="mapa-ponto p1" onclick="abrirEspaco(0)">
+            <span class="emoji">🏫</span>
+            <small>Entrada</small>
+        </button>
+
+
+        <button class="mapa-ponto p2" onclick="abrirEspaco(1)">
+            <span class="emoji">📋</span>
+            <small>Diretoria</small>
+        </button>
+
+
+        <button class="mapa-ponto p3" onclick="abrirEspaco(2)">
+            <span class="emoji">👩‍🏫</span>
+            <small>Professores</small>
+        </button>
+
+
+        <button class="mapa-ponto p4" onclick="abrirEspaco(3)">
+            <span class="emoji">📚</span>
+            <small>Biblioteca</small>
+        </button>
+
+
+        <button class="mapa-ponto p5" onclick="abrirEspaco(4)">
+            <span class="emoji">📐</span>
+            <small>Exatas</small>
+        </button>
+
+
+        <button class="mapa-ponto p6" onclick="abrirEspaco(5)">
+            <span class="emoji">✍️</span>
+            <small>Linguagens</small>
+        </button>
+
+
+        <button class="mapa-ponto p7" onclick="abrirEspaco(6)">
+            <span class="emoji">🌎</span>
+            <small>Humanas</small>
+        </button>
+
+
+        <button class="mapa-ponto p8" onclick="abrirEspaco(7)">
+            <span class="emoji">🎨</span>
+            <small>Artes</small>
+        </button>
+
+
+        <button class="mapa-ponto p9" onclick="abrirEspaco(8)">
+            <span class="emoji">🔬</span>
+            <small>Ciências</small>
+        </button>
+
+
+        <button class="mapa-ponto p10" onclick="abrirEspaco(9)">
+            <span class="emoji">💻</span>
+            <small>Informática</small>
+        </button>
+
+
+        <button class="mapa-ponto p11" onclick="abrirEspaco(10)">
+            <span class="emoji">⚙️</span>
+            <small>Tecnologia</small>
+        </button>
+
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     PROTAGONISMO
+========================================================= -->
+
+<section class="protagonismo" id="protagonismo">
+
+    <div class="protagonismo-inner">
+
+        <div class="section-label">
+            04 • QUEM FAZ A ESCOLA
+        </div>
+
+        <h2 class="section-title">
+            Uma escola feita por pessoas.
+        </h2>
+
+        <p class="section-subtitle">
+            O protagonismo estudantil ajuda a transformar
+            a escola em um espaço de participação.
+        </p>
+
+
+        <div class="protagonismo-grid">
+
+
+            <div class="pro-card">
+
+                <div class="big">
+                    💡
                 </div>
 
-                <h2>
-                    Conhecimento em diferentes formas.
-                </h2>
+                <h3>
+                    Criatividade
+                </h3>
 
                 <p>
-                    Cada área contribui de uma maneira diferente
-                    para a formação dos estudantes.
+                    Novas ideias e diferentes formas
+                    de aprender.
                 </p>
 
             </div>
 
 
-            <div class="aprendizagem-grid">
+            <div class="pro-card">
 
-
-                <div class="area">
-
-                    <div class="area-icon">
-                        ∑
-                    </div>
-
-                    <div>
-
-                        <h3>
-                            Ciências Exatas
-                        </h3>
-
-                        <p>
-                            Raciocínio lógico, matemática, investigação
-                            e resolução de problemas.
-                        </p>
-
-                    </div>
-
+                <div class="big">
+                    🤝
                 </div>
 
+                <h3>
+                    Cooperação
+                </h3>
 
-
-                <div class="area">
-
-                    <div class="area-icon">
-                        ✎
-                    </div>
-
-                    <div>
-
-                        <h3>
-                            Linguagens
-                        </h3>
-
-                        <p>
-                            Comunicação, leitura, escrita, expressão
-                            e diferentes formas de linguagem.
-                        </p>
-
-                    </div>
-
-                </div>
-
-
-
-                <div class="area">
-
-                    <div class="area-icon">
-                        ◉
-                    </div>
-
-                    <div>
-
-                        <h3>
-                            Ciências Humanas
-                        </h3>
-
-                        <p>
-                            História, sociedade, cultura, relações humanas
-                            e compreensão do mundo.
-                        </p>
-
-                    </div>
-
-                </div>
-
-
-
-                <div class="area">
-
-                    <div class="area-icon">
-                        ✦
-                    </div>
-
-                    <div>
-
-                        <h3>
-                            Artes
-                        </h3>
-
-                        <p>
-                            Criatividade, sensibilidade, expressão
-                            e desenvolvimento artístico.
-                        </p>
-
-                    </div>
-
-                </div>
-
-
-
-                <div class="area">
-
-                    <div class="area-icon">
-                        ⚗
-                    </div>
-
-                    <div>
-
-                        <h3>
-                            Ciências da Natureza
-                        </h3>
-
-                        <p>
-                            Observação, experimentação, investigação
-                            e compreensão dos fenômenos naturais.
-                        </p>
-
-                    </div>
-
-                </div>
-
-
-
-                <div class="area">
-
-                    <div class="area-icon">
-                        💻
-                    </div>
-
-                    <div>
-
-                        <h3>
-                            Tecnologia
-                        </h3>
-
-                        <p>
-                            Uso da tecnologia como ferramenta para
-                            pesquisa, criação e aprendizagem.
-                        </p>
-
-                    </div>
-
-                </div>
+                <p>
+                    Construir experiências
+                    junto com outras pessoas.
+                </p>
 
             </div>
 
-        </div>
 
-    </section>
+            <div class="pro-card">
 
-
-
-    <!-- =========================================================
-         PROTAGONISMO
-    ========================================================= -->
-
-    <section class="protagonismo" id="protagonismo">
-
-        <div class="section-container">
-
-            <div class="protagonismo-content">
-
-
-                <div>
-
-                    <div class="big-word">
-                        VOZ
-                    </div>
-
+                <div class="big">
+                    🎯
                 </div>
 
+                <h3>
+                    Responsabilidade
+                </h3>
 
-                <div class="protagonismo-text">
-
-                    <div class="eyebrow">
-                        Estudantes em ação
-                    </div>
-
-                    <h2>
-                        A escola também é feita por quem aprende nela.
-                    </h2>
-
-                    <p>
-
-                        O protagonismo dos estudantes é um aspecto importante
-                        da vida escolar. A proposta busca incentivar a participação,
-                        a criatividade, a responsabilidade e o envolvimento dos
-                        alunos na construção do cotidiano da escola.
-
-                    </p>
-
-                    <p>
-
-                        Quando o estudante participa, apresenta ideias,
-                        assume responsabilidades e contribui para a comunidade,
-                        ele também transforma o espaço em que está inserido.
-
-                    </p>
-
-
-                    <div class="protagonismo-list">
-
-                        <div>
-                            ✓ Participação
-                        </div>
-
-                        <div>
-                            ✓ Criatividade
-                        </div>
-
-                        <div>
-                            ✓ Autonomia
-                        </div>
-
-                        <div>
-                            ✓ Responsabilidade
-                        </div>
-
-                        <div>
-                            ✓ Colaboração
-                        </div>
-
-                        <div>
-                            ✓ Desenvolvimento
-                        </div>
-
-                    </div>
-
-                </div>
+                <p>
+                    Participar ativamente da
+                    comunidade escolar.
+                </p>
 
             </div>
 
+
+            <div class="pro-card">
+
+                <div class="big">
+                    🌱
+                </div>
+
+                <h3>
+                    Desenvolvimento
+                </h3>
+
+                <p>
+                    Desenvolver habilidades
+                    para o presente e o futuro.
+                </p>
+
+            </div>
+
+
         </div>
 
-    </section>
+    </div>
+
+</section>
 
 
+<!-- =========================================================
+     CURIOSIDADE
+========================================================= -->
 
-    <!-- =========================================================
-         FRASE FINAL
-    ========================================================= -->
+<section class="curiosidade">
 
-    <section class="final">
+    <div class="curiosidade-box">
 
-        <div class="eyebrow">
-            Nossa escola
+        <div class="small">
+            VOCÊ SABIA?
         </div>
 
-        <h2>
-            Onde cada dia pode ser o começo de uma nova descoberta.
+        <h2 id="curiosidadeTexto">
+            A escola também é um espaço de convivência,
+            não apenas de aprendizagem.
         </h2>
 
         <p>
-
-            Colégio Estadual do Campo Castelo Branco —
-            educação, convivência, conhecimento e futuro.
-
+            Clique no botão para descobrir outra curiosidade.
         </p>
 
-    </section>
+        <button id="novaCuriosidade">
+            ✦ Outra curiosidade
+        </button>
+
+    </div>
+
+</section>
 
 
+<!-- =========================================================
+     FINAL
+========================================================= -->
 
-    <!-- =========================================================
-         RODAPÉ
-    ========================================================= -->
+<section class="final">
 
-    <footer>
+    <div class="final-symbol">
+        ✦
+    </div>
 
-        <div class="footer-content">
+    <h2>
+        Cada espaço guarda uma história.
+        Cada pessoa ajuda a construir a próxima.
+    </h2>
 
-            <div>
+    <p>
+        Colégio Estadual do Campo Castelo Branco
+        • Feira Escolar 2026
+    </p>
 
-                <div class="footer-title">
-                    Colégio Estadual do Campo Castelo Branco
-                </div>
-
-                <div class="footer-subtitle">
-                    Feira Escolar • 2026
-                </div>
-
-            </div>
+</section>
 
 
-            <div class="footer-right">
-                ✦ Conheça • Aprenda • Participe
-            </div>
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer>
+
+    <h3>
+        Colégio Estadual do Campo Castelo Branco
+    </h3>
+
+    <p>
+        Feira Escolar • 2026
+    </p>
+
+    <p>
+        Aprendizagem • Convivência • Participação • Futuro
+    </p>
+
+</footer>
+
+
+<!-- =========================================================
+     MODAL
+========================================================= -->
+
+<div class="modal" id="modal">
+
+    <div class="modal-box">
+
+        <button class="close" onclick="fecharModal()">
+            ×
+        </button>
+
+
+        <div class="modal-emoji" id="modalEmoji">
+            🏫
+        </div>
+
+
+        <div class="modal-number" id="modalNumero">
+            ESPAÇO 01
+        </div>
+
+
+        <h2 id="modalTitulo">
+            Entrada
+        </h2>
+
+
+        <p id="modalDescricao">
+        </p>
+
+
+        <div class="fact">
+
+            <strong>
+                ✦ Você sabia?
+            </strong>
+
+            <span id="modalCuriosidade">
+            </span>
 
         </div>
 
-    </footer>
+
+        <button
+            class="modal-button"
+            onclick="fecharModal()">
+
+            Voltar para o mapa
+
+        </button>
+
+    </div>
+
+</div>
 
 
+<!-- =========================================================
+     BOTÃO TOPO
+========================================================= -->
 
-    <!-- =========================================================
-         BOTÃO TOPO
-    ========================================================= -->
-
-    <button
-        class="top-button"
-        id="topButton"
-        onclick="voltarTopo()">
-
-        ↑
-
-    </button>
+<button class="top" id="topButton" onclick="topo()">
+    ↑
+</button>
 
 
+<script>
 
-    <!-- =========================================================
-         JAVASCRIPT
-    ========================================================= -->
+/* =========================================================
+   CURSOR
+========================================================= */
 
-    <script>
+const cursor =
+document.getElementById("cursor");
 
+document.addEventListener("mousemove",function(e){
 
-        /* =====================================================
-           DADOS DOS AMBIENTES
-        ===================================================== */
+    cursor.style.left=e.clientX+"px";
+    cursor.style.top=e.clientY+"px";
 
-        const ambientes = {
-
-            1: {
-
-                numero: "01",
-
-                titulo: "Entrada",
-
-                texto:
-                    "A entrada é o primeiro contato com o ambiente escolar e representa o início da experiência de quem chega ao Colégio Estadual do Campo Castelo Branco.",
-
-                info:
-                    "Um espaço que marca a chegada, o encontro e o começo de mais um dia de aprendizagem."
-
-            },
+});
 
 
-            2: {
+/* =========================================================
+   DADOS DOS ESPAÇOS
+========================================================= */
 
-                numero: "02",
+const espacos=[
 
-                titulo: "Diretoria",
+{
+    numero:"01",
+    titulo:"Entrada",
+    emoji:"🏫",
+    descricao:"A entrada é o primeiro contato com o ambiente escolar. É por esse espaço que estudantes, professores, funcionários e visitantes chegam à escola e iniciam sua experiência no cotidiano escolar.",
+    curiosidade:"Todo tour precisa começar por algum lugar — e aqui começa a nossa caminhada pela escola!"
+},
 
-                texto:
-                    "A diretoria é um dos espaços responsáveis pela organização e gestão da vida escolar.",
+{
+    numero:"02",
+    titulo:"Diretoria",
+    emoji:"📋",
+    descricao:"A diretoria é um dos espaços responsáveis pela organização e acompanhamento da vida escolar. É onde acontecem momentos de planejamento, organização e atendimento da comunidade escolar.",
+    curiosidade:"A organização da escola envolve muito mais do que as atividades que acontecem dentro das salas de aula."
+},
 
-                info:
-                    "Aqui acontecem diferentes processos relacionados à organização da escola, atendimento e acompanhamento das atividades."
+{
+    numero:"03",
+    titulo:"Sala dos Professores",
+    emoji:"👩‍🏫",
+    descricao:"A Sala dos Professores é um espaço destinado aos profissionais da educação. É utilizada para momentos de preparação, organização, conversas e troca de experiências.",
+    curiosidade:"Antes de uma aula acontecer, existe todo um processo de planejamento e preparação realizado pelos professores."
+},
 
-            },
+{
+    numero:"04",
+    titulo:"Biblioteca",
+    emoji:"📚",
+    descricao:"A biblioteca é um espaço dedicado à leitura, pesquisa e contato com diferentes conhecimentos. É um ambiente que pode estimular a curiosidade, a imaginação e o desenvolvimento dos estudantes.",
+    curiosidade:"Um livro pode levar o leitor para diferentes lugares sem que ele precise sair da escola."
+},
+
+{
+    numero:"05",
+    titulo:"Sala de Exatas",
+    emoji:"📐",
+    descricao:"A Sala de Exatas está relacionada às áreas que envolvem raciocínio lógico, cálculos, resolução de problemas e investigação matemática e científica.",
+    curiosidade:"A matemática também está presente na tecnologia, engenharia, arquitetura e em diversas situações do cotidiano."
+},
+
+{
+    numero:"06",
+    titulo:"Sala de Linguagens",
+    emoji:"✍️",
+    descricao:"A Sala de Linguagens é um espaço relacionado ao desenvolvimento da comunicação, leitura, escrita, interpretação e diferentes formas de expressão.",
+    curiosidade:"A linguagem permite compartilhar ideias, sentimentos, conhecimentos e diferentes maneiras de enxergar o mundo."
+},
+
+{
+    numero:"07",
+    titulo:"Sala de Ciências Humanas",
+    emoji:"🌎",
+    descricao:"Na área de Ciências Humanas, os estudantes podem refletir sobre sociedade, história, geografia, cultura, relações humanas e diferentes acontecimentos.",
+    curiosidade:"Estudar o passado ajuda a compreender melhor o presente e pensar em possibilidades para o futuro."
+},
+
+{
+    numero:"08",
+    titulo:"Sala de Artes",
+    emoji:"🎨",
+    descricao:"A Sala de Artes é um espaço de criatividade e expressão. Nela podem ser desenvolvidas atividades que envolvem diferentes linguagens artísticas.",
+    curiosidade:"A arte pode comunicar uma ideia mesmo quando nenhuma palavra é utilizada."
+},
+
+{
+    numero:"09",
+    titulo:"Laboratório de Ciências",
+    emoji:"🔬",
+    descricao:"O Laboratório de Ciências aproxima os estudantes de experiências, observações e atividades práticas relacionadas aos fenômenos científicos.",
+    curiosidade:"A ciência começa muitas vezes com uma pergunta simples: por que isso acontece?"
+},
+
+{
+    numero:"10",
+    titulo:"Laboratório de Informática",
+    emoji:"💻",
+    descricao:"O Laboratório de Informática é um espaço voltado ao uso de computadores e tecnologias digitais, contribuindo para pesquisas, atividades escolares e produção de trabalhos.",
+    curiosidade:"A tecnologia está presente em diversas áreas profissionais e aprender a utilizá-la de maneira responsável é uma habilidade importante."
+},
+
+{
+    numero:"11",
+    titulo:"Espaço de Tecnologia",
+    emoji:"⚙️",
+    descricao:"Este espaço representa a presença da tecnologia no ambiente escolar e a possibilidade de utilizar recursos digitais como ferramentas de aprendizagem, pesquisa e criação.",
+    curiosidade:"Tecnologia não significa apenas utilizar equipamentos: também envolve criatividade, resolução de problemas e novas formas de criar."
+}
+
+];
 
 
-            3: {
+/* =========================================================
+   MODAL
+========================================================= */
 
-                numero: "03",
+function abrirEspaco(index){
 
-                titulo: "Sala dos Professores",
+    const espaco=espacos[index];
 
-                texto:
-                    "Um espaço destinado aos professores, onde também acontecem momentos de planejamento, organização e troca de experiências.",
+    document.getElementById("modalEmoji").textContent=espaco.emoji;
 
-                info:
-                    "O trabalho dos educadores envolve preparação, diálogo e colaboração para tornar as experiências de aprendizagem cada vez melhores."
+    document.getElementById("modalNumero").textContent=
+        "ESPAÇO "+espaco.numero;
 
-            },
+    document.getElementById("modalTitulo").textContent=
+        espaco.titulo;
+
+    document.getElementById("modalDescricao").textContent=
+        espaco.descricao;
+
+    document.getElementById("modalCuriosidade").textContent=
+        espaco.curiosidade;
+
+    document.getElementById("modal").classList.add("active");
+
+    document.body.style.overflow="hidden";
+
+}
 
 
-            4: {
+function fecharModal(){
 
-                numero: "04",
+    document.getElementById("modal")
+    .classList.remove("active");
 
-                titulo: "Biblioteca",
+    document.body.style.overflow="auto";
 
-                texto:
-                    "A biblioteca é um espaço dedicado à leitura, pesquisa, conhecimento e descoberta.",
+}
 
-                info:
-                    "Livros e diferentes fontes de informação podem abrir portas para novos conhecimentos
+
+document.getElementById("modal")
+.addEventListener("click",function(e){
+
+    if(e.target===this){
+
+        fecharModal();
+
+    }
+
+});
+
+
+document.addEventListener("keydown",function(e){
+
+    if(e.key==="Escape"){
+
+        fecharModal();
+
+    }
+
+});
+
+
+/* =========================================================
+   CURIOSIDADES
+========================================================= */
+
+const curiosidades=[
+
+"A escola também é um espaço de convivência, não apenas de aprendizagem.",
+
+"O período integral permite que diferentes momentos de aprendizagem e convivência façam parte da rotina.",
+
+"A biblioteca pode ser uma porta de entrada para novos mundos através da leitura.",
+
+"A ciência começa muitas vezes com uma pergunta.",
+
+"A criatividade também é uma forma de aprender.",
+
+"Os estudantes fazem parte da construção da comunidade escolar.",
+
+"Aprender envolve conhecimento, experiências, relações e participação.",
+
+"A tecnologia pode ser uma ferramenta para pesquisar, criar e compartilhar conhecimento.",
+
+"Cada ambiente da escola possui uma função dentro da rotina escolar."
+
+];
+
+
+let indice=0;
+
+
+document.getElementById("novaCuriosidade")
+.addEventListener("click",function(){
+
+    indice++;
+
+    if(indice>=curiosidades.length){
+
+        indice=0;
+
+    }
+
+    const texto=
+    document.getElementById("curiosidadeTexto");
+
+    texto.style.opacity="0";
+
+    setTimeout(function(){
+
+        texto.textContent=
+        curiosidades[indice];
+
+        texto.style.opacity="1";
+
+    },200);
+
+});
+
+
+/* =========================================================
+   BOTÃO TOPO
+========================================================= */
+
+const topButton=
+document.getElementById("topButton");
+
+
+window.addEventListener("scroll",function(){
+
+    if(window.scrollY>500){
+
+        topButton.classList.add("show");
+
+    }else{
+
+        topButton.classList.remove("show");
+
+    }
+
+});
+
+
+function topo(){
+
+    window.scrollTo({
+
+        top:0,
+
+        behavior:"smooth"
+
+    });
+
+}
+
+</script>
+
+
+</body>
+</html>
